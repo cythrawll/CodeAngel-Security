@@ -51,8 +51,8 @@ class TokenUtils {
         }
         
         if(function_exists("openssl_random_pseudo_bytes")) {
-            if(strtoupper(substr(PHP_OS, 0, 3)) === 'WIN' && version_compare(PHP_VERSION, "5.3.7", "<")) {
-                trigger_error("Windows users using less than version 5.3.7 might have issues with openssl_random_pseudo_bytes generating enough entropy. Please upgrade.", E_USER_WARNING);   
+            if(strtoupper(substr(PHP_OS, 0, 3)) === 'WIN' && version_compare(PHP_VERSION, "5.4.0", "<")) {
+                trigger_error("Windows users using less than version 5.4.0 might have issues with openssl_random_pseudo_bytes generating enough entropy. Please upgrade.", E_USER_WARNING);   
             }
             $strongCrypt;
             $bytes = openssl_random_pseudo_bytes($length, $strongCrypt);
@@ -67,7 +67,13 @@ class TokenUtils {
             fclose($fh);
             return $bytes;
         }
-        throw new Exception("There is no usable csprng on your system.");
+        
+        trigger_error("No usable csprng on your system, please install openssl or mcrypt, falling back to mt_rand", E_USER_WARNING);
+        $bytes = '';
+        for($i = 0; $i < $length; $i++) {
+            $bytes .= chr(mt_rand(0, 255));
+        }
+        return $bytes;
     }
     
     /**
