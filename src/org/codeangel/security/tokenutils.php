@@ -54,7 +54,7 @@ class TokenUtils {
             if(strtoupper(substr(PHP_OS, 0, 3)) === 'WIN' && version_compare(PHP_VERSION, "5.4.0", "<")) {
                 trigger_error("Windows users using less than version 5.4.0 might have issues with openssl_random_pseudo_bytes generating enough entropy. Please upgrade.", E_USER_WARNING);   
             }
-            $strongCrypt;
+            $strongCrypt = null;
             $bytes = openssl_random_pseudo_bytes($length, $strongCrypt);
             if($strongCrypt) {
                 return $bytes;

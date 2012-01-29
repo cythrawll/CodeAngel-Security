@@ -39,15 +39,31 @@ abstract class CryptPasswordGenerator implements PasswordGenerator {
         $rounds = sprintf("%02d", $rounds);
         return sprintf($this->format, $rounds, $salt);
     } 
-    
+
+    /**
+     * hashes a password
+     * @param $password password to hash
+     * @return hashed password
+     */
     public function genPassword($password) {
         return crypt($password, $this->getFormat());
     }
-    
+
+    /**
+     * Checks entered password matches the hash
+     * @param $password password that the user supplied
+     * @param $expected hash from storage (eg. from your database)
+     * @return bool whether or not the password matched or not
+     */
     public function checkPassword($password, $expected) {
         return (crypt($password, $expected) === $expected);
     }
-    
+
+    /**
+     * overrides default cost of the hash, will randomize between min and max.
+     * @param $min
+     * @param $max
+     */
     public function setCost($min, $max) {
         $this->minRounds = $min;
         $this->maxRounds = $max;
