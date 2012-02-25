@@ -146,4 +146,22 @@ class PasswordTest extends PHPUnit_Framework_TestCase {
         $this->assertEquals('the c@t !n the h@t', org\codeangel\security\passwords\PasswordUtils::numsymolize("the cat in the hat"));
         $this->assertEquals('7#3 c47 !n 7#3 #47', org\codeangel\security\passwords\PasswordUtils::numsymolize("the cat in the hat", true));
     }
+
+    public function testPasswordStrength() {
+        $strength = new org\codeangel\security\passwords\PasswordStrength("hello");
+
+        $this->assertEquals(24, (int)$strength->getEntropy());
+        $this->assertEquals(org\codeangel\security\passwords\PasswordStrength::VERY_WEAK, $strength->getStrength());
+        $this->assertEquals("very weak", $strength->strengthWord());
+
+        $strength->setPassword('Tr0ub4dor&3');
+        $this->assertEquals(69, (int)$strength->getEntropy());
+        $this->assertEquals(org\codeangel\security\passwords\PasswordStrength::STRONG, $strength->getStrength());
+        $this->assertEquals("strong", $strength->strengthWord());
+
+        $strength->setPassword('correcthorsebatterystaple');
+        $this->assertEquals(131, (int)$strength->getEntropy());
+        $this->assertEquals(org\codeangel\security\passwords\PasswordStrength::VERY_STRONG, $strength->getStrength());
+        $this->assertEquals("very strong", $strength->strengthWord());
+    }
 }
