@@ -72,4 +72,58 @@ class PasswordTest extends PHPUnit_Framework_TestCase {
     	$result = $gen->checkPassword('foobar1', $password);
     	$this->assertFalse($result, "passwords do match, even though they should not");
     }
+
+    public function testKoremetake() {
+        $gen = new org\codeangel\security\passwords\KoremutakePassword;
+        $this->assertEquals($gen->integerToKoremutake(0), 'ba');
+        $this->assertEquals($gen->integerToKoremutake(39), 'ko');
+        $this->assertEquals($gen->integerToKoremutake(67), 're');
+        $this->assertEquals($gen->integerToKoremutake(52), 'mu');
+        $this->assertEquals($gen->integerToKoremutake(78), 'ta');
+        $this->assertEquals($gen->integerToKoremutake(37), 'ke');
+        $this->assertEquals($gen->integerToKoremutake(128), 'beba');
+        $this->assertEquals($gen->integerToKoremutake(256), 'biba');
+        $this->assertEquals($gen->integerToKoremutake(65535), 'botretre');
+        $this->assertEquals($gen->integerToKoremutake(65536), 'bubaba');
+        $this->assertEquals($gen->integerToKoremutake(5059), 'kore');
+        $this->assertEquals($gen->integerToKoremutake(10610353957), 'koremutake');
+
+        $this->assertEquals($gen->koremutakeToInteger('ba'), 0);
+        $this->assertEquals($gen->koremutakeToInteger('ko'), 39);
+        $this->assertEquals($gen->koremutakeToInteger('re'), 67);
+        $this->assertEquals($gen->koremutakeToInteger('mu'), 52);
+        $this->assertEquals($gen->koremutakeToInteger('ta'), 78);
+        $this->assertEquals($gen->koremutakeToInteger('ke'), 37);
+        $this->assertEquals($gen->koremutakeToInteger('beba'), 128);
+        $this->assertEquals($gen->koremutakeToInteger('biba'), 256);
+        $this->assertEquals($gen->koremutakeToInteger('botretre'), 65535);
+        $this->assertEquals($gen->koremutakeToInteger('bubaba'), 65536);
+        $this->assertEquals($gen->koremutakeToInteger('kore'), 5059);
+        $this->assertEquals($gen->koremutakeToInteger('koremutake'), 10610353957);
+
+    }
+
+    /**
+     * @expectedException Exception
+     */
+    public function testkoremutakeFailure() {
+        $gen = new org\codeangel\security\passwords\KoremutakePassword;
+        $gen->koremutakeToInteger("hello world");
+    }
+
+    public function testPronounceable() {
+        $gen = new org\codeangel\security\passwords\PronPassword;
+        list($word, $pron) = $gen->genPass(20, 20);
+        $this->assertEquals(strlen($word), 20);
+        $this->assertRegExp('/^[a-z]+$/', $word);
+        $this->assertRegExp('/^[a-z-]+$/i', $word);
+
+        for($i = 0; $i < 10; $i ++) {
+            list($word, $pron) = $gen->genPass(2, 20);
+            $this->assertGreaterThanOrEqual(2, strlen($word));
+            $this->assertLessThanOrEqual(20, strlen($word));
+            $this->assertRegExp('/^[a-z]+$/', $word);
+            $this->assertRegExp('/^[a-z-]+$/i', $word);
+        }
+    }
 }

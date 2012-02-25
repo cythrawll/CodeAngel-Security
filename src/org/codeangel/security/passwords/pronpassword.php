@@ -27,6 +27,8 @@
  * This code was a port of the pronounceable password generator in APG -- by Adel I. Mirzazhanov
  */
 //TODO: Needs lots of clean up since this is pretty much a direct port.
+namespace org\codeangel\security\passwords;
+
 class PronPassword {
 
     const NOT_BEGIN_SYLLABLE = 010;
@@ -1261,7 +1263,7 @@ class PronPassword {
             $maxLen = $minLen;
         }
         if($minLen > $maxLen) {
-            throw new Exception("\$minLen of $minLen cannot be greater than \$maxLen of $maxLen");
+            throw new \Exception("\$minLen of $minLen cannot be greater than \$maxLen of $maxLen");
         }
 
         if($maxLen == 0) {
