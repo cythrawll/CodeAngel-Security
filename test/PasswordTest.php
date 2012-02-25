@@ -126,4 +126,24 @@ class PasswordTest extends PHPUnit_Framework_TestCase {
             $this->assertRegExp('/^[a-z-]+$/i', $word);
         }
     }
+
+    public function testPasswordUtils() {
+        $this->assertRegExp('/[A-Z]/', org\codeangel\security\passwords\PasswordUtils::randomCaptilize("hello"));
+
+        //
+        $this->assertEquals('hElLo', org\codeangel\security\passwords\PasswordUtils::capitilizeAlternating("hello"));
+        $this->assertEquals('HeLlO', org\codeangel\security\passwords\PasswordUtils::capitilizeAlternating("hello", false));
+
+        //
+        $this->assertEquals('he110', org\codeangel\security\passwords\PasswordUtils::numerize("hello"));
+        $this->assertEquals('h3110', org\codeangel\security\passwords\PasswordUtils::numerize("hello", true));
+
+        //
+        $this->assertEquals('the c@t !n the h@t', org\codeangel\security\passwords\PasswordUtils::symbolize("the cat in the hat"));
+        $this->assertEquals('t#e c@t !n t#e #@t', org\codeangel\security\passwords\PasswordUtils::symbolize("the cat in the hat", true));
+
+        //
+        $this->assertEquals('the c@t !n the h@t', org\codeangel\security\passwords\PasswordUtils::numsymolize("the cat in the hat"));
+        $this->assertEquals('7#3 c47 !n 7#3 #47', org\codeangel\security\passwords\PasswordUtils::numsymolize("the cat in the hat", true));
+    }
 }

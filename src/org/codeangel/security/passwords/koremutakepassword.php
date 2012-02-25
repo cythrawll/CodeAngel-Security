@@ -26,6 +26,9 @@
  */
 namespace org\codeangel\security\passwords;
 
+/**
+ * Koremetake generator, see http://shorl.com/koremutake for details
+ */
 class KoremutakePassword {
     private $phonemes = array('BA', 'BE', 'BI', 'BO', 'BU', 'BY', 'DA', 'DE', 'DI', 'DO', 'DU', 'DY', 'FA',
         'FE', 'FI', 'FO', 'FU', 'FY', 'GA', 'GE', 'GI', 'GO', 'GU', 'GY', 'HA', 'HE', 'HI', 'HO', 'HU', 'HY',
@@ -38,40 +41,46 @@ class KoremutakePassword {
         'STY', 'TRA', 'TRE'
     );
 
-   private function numbersToKoremutake(Array $numbers) {
-       $string = "";
-       foreach($numbers as $num) {
-           if(!is_int($num)) {
-               throw new \Exception("array must contain integers");
-           }
-           if($num < 0 || $num > 127 ) {
-               throw new \Exception("numbers must be between 0 and 127");
-           }
+    private function numbersToKoremutake(Array $numbers) {
+        $string = "";
+        foreach($numbers as $num) {
+            if(!is_int($num)) {
+                throw new \Exception("array must contain integers");
+            }
+            if($num < 0 || $num > 127 ) {
+                throw new \Exception("numbers must be between 0 and 127");
+            }
 
-           $string .= $this->phonemes[$num];
-       }
-       return $string;
-   }
+            $string .= $this->phonemes[$num];
+        }
+        return $string;
+    }
 
-   private function koremutakeToNumbers($string) {
-       $numbers = array();
-       $phoneme = "";
-       $chars = str_split($string);
-       foreach($chars as $char) {
-           $phoneme .= $char;
-           if(!preg_match('#^[aeiouy]$#i', $char)) {
-               continue;
-           }
-           $number = array_search($phoneme, $this->phonemes);
-           if($number === false) {
-               throw new \Exception("$phoneme is not a valid phoneme");
-           }
-           array_push($numbers, $number);
-           $phoneme = "";
-       }
+    private function koremutakeToNumbers($string) {
+        $numbers = array();
+        $phoneme = "";
+        $chars = str_split($string);
+        foreach($chars as $char) {
+            $phoneme .= $char;
+            if(!preg_match('#^[aeiouy]$#i', $char)) {
+                continue;
+            }
+            $number = array_search($phoneme, $this->phonemes);
+            if($number === false) {
+                throw new \Exception("$phoneme is not a valid phoneme");
+            }
+            array_push($numbers, $number);
+            $phoneme = "";
+        }
        return $numbers;
-   }
+    }
 
+    /**
+     * Returns a koremetake representation of an integer
+     * @param  int $int
+     * @return string koremetake representation of integer
+     * @throws \Exception throws if $int is negative
+     */
     public function integerToKoremutake($int) {
         if($int < 0) {
             throw new \Exception("Negative Integers not acceptable");
@@ -89,6 +98,12 @@ class KoremutakePassword {
         return strtolower($this->numbersToKoremutake(array_reverse($numbers)));
     }
 
+    /**
+     * Returns integer from a koremetake string
+     * @param string $string koremetake string
+     * @return int integer representation of string
+     * @throws \Exception throws if string is not a valid koremetake string
+     */
     public function koremutakeToInteger($string) {
         $numbers = $this->koremutakeToNumbers(strtoupper($string));
         $int = 0;
