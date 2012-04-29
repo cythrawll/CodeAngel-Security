@@ -147,21 +147,73 @@ class PasswordTest extends PHPUnit_Framework_TestCase {
         $this->assertEquals('7#3 c47 !n 7#3 #47', org\codeangel\security\passwords\PasswordUtils::numsymolize("the cat in the hat", true));
     }
 
+
     public function testPasswordStrength() {
+
         $strength = new org\codeangel\security\passwords\PasswordStrength("hello");
 
         $this->assertEquals(24, (int)$strength->getEntropy());
+        $this->assertEquals(20, $strength->getScore());
+        $this->assertFalse($strength->isFoundInDictionary());
         $this->assertEquals(org\codeangel\security\passwords\PasswordStrength::VERY_WEAK, $strength->getStrength());
         $this->assertEquals("very weak", $strength->strengthWord());
 
         $strength->setPassword('Tr0ub4dor&3');
         $this->assertEquals(69, (int)$strength->getEntropy());
+        $this->assertEquals(80, $strength->getScore());
+        $this->assertFalse($strength->isFoundInDictionary());
         $this->assertEquals(org\codeangel\security\passwords\PasswordStrength::STRONG, $strength->getStrength());
         $this->assertEquals("strong", $strength->strengthWord());
 
         $strength->setPassword('correcthorsebatterystaple');
         $this->assertEquals(131, (int)$strength->getEntropy());
+        $this->assertEquals(100, $strength->getScore());
+        $this->assertFalse($strength->isFoundInDictionary());
         $this->assertEquals(org\codeangel\security\passwords\PasswordStrength::VERY_STRONG, $strength->getStrength());
         $this->assertEquals("very strong", $strength->strengthWord());
+    }
+
+    public function testPasswordStrengthWithWordList() {
+        if(!file_exists('wordlist.sq3')) {
+            return;
+        }
+
+        $strength = new org\codeangel\security\passwords\PasswordStrength("hello", new org\codeangel\security\passwords\SqliteWordList('wordlist.sq3'));
+
+        $this->assertEquals(24, (int)$strength->getEntropy());
+        $this->assertEquals(20, $strength->getScore());
+        $this->assertTrue($strength->isFoundInDictionary());
+        $this->assertEquals(org\codeangel\security\passwords\PasswordStrength::VERY_WEAK, $strength->getStrength());
+        $this->assertEquals("very weak", $strength->strengthWord());
+
+        $strength->setPassword("0p9o8i7u");
+        $this->assertEquals(43, (int)$strength->getEntropy());
+        $this->assertEquals(20, $strength->getScore());
+        $this->assertTrue($strength->isFoundInDictionary());
+        $this->assertEquals(org\codeangel\security\passwords\PasswordStrength::VERY_WEAK, $strength->getStrength());
+        $this->assertEquals("very weak", $strength->strengthWord());
+
+        $strength->setPassword('Tr0ub4dor&3');
+        $this->assertEquals(69, (int)$strength->getEntropy());
+        $this->assertEquals(80, $strength->getScore());
+        $this->assertFalse($strength->isFoundInDictionary());
+        $this->assertEquals(org\codeangel\security\passwords\PasswordStrength::STRONG, $strength->getStrength());
+        $this->assertEquals("strong", $strength->strengthWord());
+
+        $strength->setPassword('correcthorsebatterystaple');
+        $this->assertEquals(131, (int)$strength->getEntropy());
+        $this->assertEquals(100, $strength->getScore());
+        $this->assertFalse($strength->isFoundInDictionary());
+        $this->assertEquals(org\codeangel\security\passwords\PasswordStrength::VERY_STRONG, $strength->getStrength());
+        $this->assertEquals("very strong", $strength->strengthWord());
+    }
+
+    public function testWordList(){
+        if(!file_exists('wordlist.sq3')) {
+            return;
+        }
+        $wordlist = new org\codeangel\security\passwords\SqliteWordList('wordlist.sq3');
+        $this->assertTrue($wordlist->check('hello'), "Checking if 'hello' is in the wordlist");
+        $this->assertFalse($wordlist->check('fsqec'), "Checking if 'fsqec' is not in the wordlist");
     }
 }

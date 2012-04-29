@@ -37,19 +37,28 @@ class PasswordStrength {
     const STRONG = 3;
     const VERY_STRONG = 4;
 
+    const START_SCORE = 100;
+
     protected $entropy;
+    protected $score;
+    protected $foundInDictionary;
+    protected $dict;
 
     protected function init() {
         $this->entropy = 0;
+        $this->score = self::START_SCORE;
+        $this->foundInDictionary = false;
     }
 
     /**
      * @param string $password optionally pass password to calculate entropy
+     * @param WordList $dict <Optional> used to see if password could be cracked with a simple dictionary lookup
      */
-    public function __construct($password = null) {
+    public function __construct($password = null, WordList $dict = null) {
         $this->init();
+        $this->dict = $dict;
         if($password != null) {
-            $this->entropy($password);
+            $this->score($password);
         }
     }
 
@@ -105,21 +114,68 @@ class PasswordStrength {
     }
 
     /**
+     * Returns password score
+     * @return int score of password;
+     */
+    public function getScore() {
+        return $this->score;
+    }
+
+    /**
+     * Returns if the word was found in a dictionary or not.
+     * @return bool whether the word was found in a dictionary or not.
+     */
+    public function isFoundInDictionary() {
+        return $this->foundInDictionary;
+    }
+
+    protected function score($password) {
+        //calculate enttropy
+        $this->entropy($password);
+
+        //is this word found in the dictionary?
+        if($this->dict != null) {
+            $this->foundInDictionary = $this->dict->check($password);
+        }
+
+        //is reverse of this word found in the dictionary?
+        if($this->dict != null && !$this->foundInDictionary) {
+            $this->foundInDictionary = $this->dict->check(strrev($password));
+        }
+
+        if(!$this->foundInDictionary) {
+            if($this->entropy < 28) {
+               $this->score -= 80;
+            } else if($this->entropy >= 28 && $this->entropy <= 35) {
+                $this->score -= 60;
+            } else if($this->entropy >= 36 && $this->entropy <= 59) {
+                $this->score -= 40;
+            } else if($this->entropy >= 60 && $this->entropy <= 127) {
+                $this->score -= 20;
+            } else if($this->entropy >= 128) {
+                $this->score -= 0;
+            }
+        } else {
+            $this->score -= 80;
+        }
+    }
+
+    /**
      * Calculates the general strength of the password.  matched against the constants:
      * PasswordStrength::VERY_WEAK, PasswordStrength::WEAK, PasswordStrength::FAIR
      * PasswordStrength::STRONG, PasswordStrength::VERY_STRONG
      * @return int Calculates the general strength of the password.
      */
     public function getStrength() {
-        if($this->entropy < 28) {
+        if($this->score < 21) {
             return self::VERY_WEAK;
-        } else if($this->entropy >= 28 && $this->entropy <= 35) {
+        } else if($this->entropy >= 21 && $this->entropy <= 40) {
             return self::WEAK;
-        } else if($this->entropy >= 36 && $this->entropy <= 59) {
+        } else if($this->entropy >= 41 && $this->entropy <= 60) {
             return self::FAIR;
-        } else if($this->entropy >= 60 && $this->entropy <= 127) {
+        } else if($this->entropy >= 61 && $this->entropy <= 80) {
             return self::STRONG;
-        } else if($this->entropy >= 128) {
+        } else if($this->entropy >= 81) {
             return self::VERY_STRONG;
         }
     }
@@ -159,6 +215,6 @@ class PasswordStrength {
      */
     public function setPassword($password) {
         $this->init();
-        $this->entropy($password);
+        $this->score($password);
     }
 }
