@@ -3,3 +3,5 @@
 /.settings
 /.idea
 *.sq3
+vendor
+composer.lock

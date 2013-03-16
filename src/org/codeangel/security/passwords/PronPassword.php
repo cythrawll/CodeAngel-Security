@@ -1253,10 +1253,10 @@ class PronPassword {
     }
 
     /**
-     * @param $minLen Minimum Length of password
-     * @param null Maximum Length of password, optional, if left out it will be the same as $minLen
+     * @param $minLen int Minimum Length of password
+     * @param null int Maximum Length of password, optional, if left out it will be the same as $minLen
      * @return array returns array of the = array($password, $pronounciation_key);
-     * @throws Exception
+     * @throws \Exception
      */
     public function genPass($minLen, $maxLen = null) {
         if($maxLen == null) {

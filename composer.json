@@ -1,0 +1,22 @@
+{
+    "name": "codeangel/security",
+    "description": "CodeAngel Security Framework",
+    "keywords": ["Security", "login", "password strength", "password generation"],
+    "license": "BSD-2-Clause",
+    "authors": [
+        {
+            "name": "Chad Minick",
+            "email": "cythrawll@codeangel.org",
+            "homepage": "http://www.codeangel.org"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.2",
+        "phpunit/phpunit": "3.7.18"
+    },
+    "autoload": {
+        "psr-0": {
+            "org\\codeangel\\security": "src"
+        }
+    }
+}

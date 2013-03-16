@@ -21,7 +21,7 @@
 *
 */
 
-include "setup.php";
+include "bootstrap.php";
 
 class PasswordTest extends PHPUnit_Framework_TestCase {
     
