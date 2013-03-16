@@ -42,8 +42,8 @@ abstract class CryptPasswordGenerator implements PasswordGenerator {
 
     /**
      * hashes a password
-     * @param $password password to hash
-     * @return hashed password
+     * @param $password string password to hash
+     * @return string hashed password
      */
     public function genPassword($password) {
         return crypt($password, $this->getFormat());
@@ -51,12 +51,12 @@ abstract class CryptPasswordGenerator implements PasswordGenerator {
 
     /**
      * Checks entered password matches the hash
-     * @param $password password that the user supplied
-     * @param $expected hash from storage (eg. from your database)
+     * @param $password string password that the user supplied
+     * @param $expected string hash from storage (eg. from your database)
      * @return bool whether or not the password matched or not
      */
     public function checkPassword($password, $expected) {
-        return (crypt($password, $expected) === $expected);
+        return PasswordUtils::compare(crypt($password, $expected), $expected);
     }
 
     /**

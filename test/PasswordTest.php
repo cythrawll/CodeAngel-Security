@@ -47,6 +47,11 @@ class PasswordTest extends PHPUnit_Framework_TestCase {
         $this->assertTrue($result, "passwords do not match, even though they should");
         $result = $gen->checkPassword('foobar1', $password);
         $this->assertFalse($result, "passwords do match, even though they should not");
+
+        //testing cost
+        $gen->setCost(6,6);
+        $result = $gen->genPassword("foobar");
+        $this->assertStringStartsWith('$2a$06$', $result);
     }
     
     public function testSHA256CryptPasswordGenerator() {
@@ -59,6 +64,11 @@ class PasswordTest extends PHPUnit_Framework_TestCase {
     	$this->assertTrue($result, "passwords do not match, even though they should");
     	$result = $gen->checkPassword('foobar1', $password);
     	$this->assertFalse($result, "passwords do match, even though they should not");
+
+        //test cost
+        $gen->setCost(9999,9999);
+        $result = $gen->genPassword("foobar");
+        $this->assertStringStartsWith('$5$rounds=9999', $result);
     }
     
     public function testSHA512CryptPasswordGenerator() {
@@ -71,6 +81,11 @@ class PasswordTest extends PHPUnit_Framework_TestCase {
     	$this->assertTrue($result, "passwords do not match, even though they should");
     	$result = $gen->checkPassword('foobar1', $password);
     	$this->assertFalse($result, "passwords do match, even though they should not");
+
+        //test cost
+        $gen->setCost(9999,9999);
+        $result = $gen->genPassword("foobar");
+        $this->assertStringStartsWith('$6$rounds=9999', $result);
     }
 
     public function testKoremetake() {
@@ -215,5 +230,10 @@ class PasswordTest extends PHPUnit_Framework_TestCase {
         $wordlist = new org\codeangel\security\passwords\SqliteWordList('wordlist.sq3');
         $this->assertTrue($wordlist->check('hello'), "Checking if 'hello' is in the wordlist");
         $this->assertFalse($wordlist->check('fsqec'), "Checking if 'fsqec' is not in the wordlist");
+    }
+
+    public function testStringCompare() {
+        $this->assertTrue(org\codeangel\security\passwords\PasswordUtils::compare('hello', 'hello'));
+        $this->assertFalse(org\codeangel\security\passwords\PasswordUtils::compare('hello', 'world'));
     }
 }

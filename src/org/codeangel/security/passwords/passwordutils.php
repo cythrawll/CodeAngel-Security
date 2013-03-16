@@ -115,4 +115,15 @@ class PasswordUtils {
         }
         return $newString;
     }
+
+    public static function compare($str1, $str2) {
+        if (strlen($str1) !== strlen($str2)) {
+            return false;
+        }
+        $result = 0;
+        for ($i = 0; $i < strlen($str1); $i++) {
+            $result |= ord($str1[$i]) ^ ord($str2[$i]);
+        }
+        return $result == 0;
+    }
 }
