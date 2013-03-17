@@ -1,6 +1,5 @@
 {
     "name": "codeangel/security",
-    "version": "1.0.0-alpha1",
     "description": "CodeAngel Security Framework",
     "keywords": ["Security", "login", "password strength", "password generation"],
     "license": "BSD-2-Clause",
