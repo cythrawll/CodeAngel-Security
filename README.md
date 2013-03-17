@@ -1,10 +1,12 @@
 Codeangel Security Framework for PHP
 ====================================
 
+[![Build Status](https://travis-ci.org/cythrawll/CodeAngel-Security.png?branch=master)](https://travis-ci.org/cythrawll/CodeAngel-Security)
+
 ##Installation
 
 With Composer:
-You can install with [[composer|http://getcomposer.org/]], Simply add to your composer.json
+You can install with [composer](http://getcomposer.org/), Simply add to your composer.json
 ```javascript
 {
     "require": {
