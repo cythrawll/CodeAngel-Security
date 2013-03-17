@@ -1,0 +1,214 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+<meta charset="utf-8">
+<title>phpDocumentor » \org\codeangel\security\TokenUtils</title>
+<meta name="author" content="Mike van Riel">
+<meta name="description" content="">
+<link href="../css/template.css" rel="stylesheet" media="all">
+<script src="../js/jquery-1.7.1.min.js" type="text/javascript"></script><script src="../js/jquery-ui-1.8.2.custom.min.js" type="text/javascript"></script><script src="../js/jquery.mousewheel.min.js" type="text/javascript"></script><script src="../js/bootstrap.js" type="text/javascript"></script><script src="../js/template.js" type="text/javascript"></script><script src="../js/prettify/prettify.min.js" type="text/javascript"></script><link rel="shortcut icon" href="../img/favicon.ico">
+<link rel="apple-touch-icon" href="../img/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="72x72" href="../img/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="114x114" href="../img/apple-touch-icon-114x114.png">
+</head>
+<body>
+<div class="navbar navbar-fixed-top">
+<div class="navbar-inner"><div class="container">
+<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></a><a class="brand" href="../index.html">phpDocumentor</a><div class="nav-collapse"><ul class="nav">
+<li class="dropdown">
+<a href="#api" class="dropdown-toggle" data-toggle="dropdown">
+                                    API Documentation <b class="caret"></b></a><ul class="dropdown-menu">
+<li><a>Namespaces</a></li>
+<li><a href="../namespaces/org.html"><i class="icon-th"></i> org</a></li>
+<li><a>Packages</a></li>
+<li><a href="../packages/Default.html"><i class="icon-folder-open"></i> Default</a></li>
+</ul>
+</li>
+<li class="dropdown" id="charts-menu">
+<a href="#charts" class="dropdown-toggle" data-toggle="dropdown">
+                                    Charts <b class="caret"></b></a><ul class="dropdown-menu"><li><a href="../graph_class.html"><i class="icon-list-alt"></i> Class hierarchy diagram</a></li></ul>
+</li>
+<li class="dropdown" id="reports-menu">
+<a href="#reports" class="dropdown-toggle" data-toggle="dropdown">
+                                    Reports <b class="caret"></b></a><ul class="dropdown-menu">
+<li><a href="../errors.html"><i class="icon-remove-sign"></i> Errors 
+                <span class="label label-info">59</span></a></li>
+<li><a href="../markers.html"><i class="icon-map-marker"></i> Markers 
+                <ul><li>todo 
+                <span class="label label-info">1</span>
+</li></ul></a></li>
+<li><a href="../deprecated.html"><i class="icon-stop"></i> Deprecated elements 
+                <span class="label label-info">0</span></a></li>
+</ul>
+</li>
+</ul></div>
+</div></div>
+<div class="go_to_top"><a href="#___" style="color: inherit">Back to top  <i class="icon-upload icon-white"></i></a></div>
+</div>
+<div id="___" class="container">
+<noscript><div class="alert alert-warning">
+                            Javascript is disabled; several features are only available
+                            if Javascript is enabled.
+                        </div></noscript>
+<div class="row">
+<div class="span4">
+<span class="btn-group visibility" data-toggle="buttons-checkbox"><button class="btn public active" title="Show public elements">Public</button><button class="btn protected" title="Show protected elements">Protected</button><button class="btn private" title="Show private elements">Private</button><button class="btn inherited active" title="Show inherited elements">Inherited</button></span><div class="btn-group view pull-right" data-toggle="buttons-radio">
+<button class="btn details" title="Show descriptions and method names"><i class="icon-list"></i></button><button class="btn simple" title="Show only method names"><i class="icon-align-justify"></i></button>
+</div>
+<ul class="side-nav nav nav-list">
+<li class="nav-header">
+<i class="icon-custom icon-method"></i> Methods
+                    <ul>
+<li class="method public "><a href="#method_generateCryptBlowfishSalt" title="generateCryptBlowfishSalt :: generates salt for use with crypt() blowfish algorithm."><span class="description">generates salt for use with crypt() blowfish algorithm.</span><pre>generateCryptBlowfishSalt()</pre></a></li>
+<li class="method public "><a href="#method_generateHexToken" title="generateHexToken :: For those that simply must have a hex token."><span class="description">For those that simply must have a hex token.</span><pre>generateHexToken()</pre></a></li>
+<li class="method public "><a href="#method_generateStrongToken" title="generateStrongToken :: Token generated with even more printable characters"><span class="description">Token generated with even more printable characters</span><pre>generateStrongToken()</pre></a></li>
+<li class="method public "><a href="#method_generateToken" title="generateToken :: Generates alpha-numeric token"><span class="description">Generates alpha-numeric token</span><pre>generateToken()</pre></a></li>
+<li class="method public "><a href="#method_generateTokenFromAlphabet" title="generateTokenFromAlphabet :: creates a token from the given alphabet."><span class="description">creates a token from the given alphabet.</span><pre>generateTokenFromAlphabet()</pre></a></li>
+<li class="method public "><a href="#method_getRandomBytes" title="getRandomBytes :: Generates random bytes from a CSPRNG"><span class="description">Generates random bytes from a CSPRNG</span><pre>getRandomBytes()</pre></a></li>
+</ul>
+</li>
+<li class="nav-header">
+<i class="icon-custom icon-constant"></i> Constants
+                    <ul>
+<li class="constant  "><a href="#constant_ALPHA_NUM" title="ALPHA_NUM :: "><span class="description">ALPHA_NUM</span><pre>ALPHA_NUM</pre></a></li>
+<li class="constant  "><a href="#constant_CRYPT_BLOWFISH_EXTRA" title="CRYPT_BLOWFISH_EXTRA :: "><span class="description">CRYPT_BLOWFISH_EXTRA</span><pre>CRYPT_BLOWFISH_EXTRA</pre></a></li>
+<li class="constant  "><a href="#constant_PRINTABLE_EXTRA" title="PRINTABLE_EXTRA :: "><span class="description">PRINTABLE_EXTRA</span><pre>PRINTABLE_EXTRA</pre></a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="span8">
+<a id="\org\codeangel\security\TokenUtils"></a><ul class="breadcrumb">
+<li>
+<a href="../index.html"><i class="icon-custom icon-class"></i></a><span class="divider">\</span>
+</li>
+<li><a href="../namespaces/org.html">org</a></li>
+<li>
+<span class="divider">\</span><a href="../namespaces/org.codeangel.html">codeangel</a>
+</li>
+<li>
+<span class="divider">\</span><a href="../namespaces/org.codeangel.security.html">security</a>
+</li>
+<li class="active">
+<span class="divider">\</span><a href="../classes/org.codeangel.security.TokenUtils.html">TokenUtils</a>
+</li>
+</ul>
+<div class="element class">
+<p class="short_description">use this class to generate tokens used for a variety of security purposes.</p>
+<div class="details">
+<div class="long_description"><p>Uses a cryptographic random function and a configurable alphabet to maximize entropy.</p></div>
+<table class="table table-bordered"><tr>
+<th>author</th>
+<td><a href="">Chad Minick</a></td>
+</tr></table>
+<h3>
+<i class="icon-custom icon-method"></i> Methods</h3>
+<a id="method_generateCryptBlowfishSalt"></a><div class="element clickable method public method_generateCryptBlowfishSalt" data-toggle="collapse" data-target=".method_generateCryptBlowfishSalt .collapse">
+<h2>generates salt for use with crypt() blowfish algorithm.</h2>
+<pre>generateCryptBlowfishSalt() </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="method_generateHexToken"></a><div class="element clickable method public method_generateHexToken" data-toggle="collapse" data-target=".method_generateHexToken .collapse">
+<h2>For those that simply must have a hex token.</h2>
+<pre>generateHexToken(int $length) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$length</h4>
+<code>int</code><p>must be Even number, if not even, will round down.</p></div>
+</div></div>
+</div>
+<a id="method_generateStrongToken"></a><div class="element clickable method public method_generateStrongToken" data-toggle="collapse" data-target=".method_generateStrongToken .collapse">
+<h2>Token generated with even more printable characters</h2>
+<pre>generateStrongToken(int $length) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$length</h4>
+<code>int</code>
+</div>
+</div></div>
+</div>
+<a id="method_generateToken"></a><div class="element clickable method public method_generateToken" data-toggle="collapse" data-target=".method_generateToken .collapse">
+<h2>Generates alpha-numeric token</h2>
+<pre>generateToken(int $length) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$length</h4>
+<code>int</code>
+</div>
+</div></div>
+</div>
+<a id="method_generateTokenFromAlphabet"></a><div class="element clickable method public method_generateTokenFromAlphabet" data-toggle="collapse" data-target=".method_generateTokenFromAlphabet .collapse">
+<h2>creates a token from the given alphabet.</h2>
+<pre>generateTokenFromAlphabet(integer $length, string $alphabet) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"><p>defaults alpha-numeric alphabet
+example:</p>
+
+<pre><code>$rand->generateTokenFromAlphabet(22, TokenUtils::ALPHANUM.TokenUtils::CRYPT_BLOWFISH_EXTRA);</code></pre></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$length</h4>
+<code>integer</code>
+</div>
+<div class="subelement argument">
+<h4>$alphabet</h4>
+<code>string</code>
+</div>
+</div></div>
+</div>
+<a id="method_getRandomBytes"></a><div class="element clickable method public method_getRandomBytes" data-toggle="collapse" data-target=".method_getRandomBytes .collapse">
+<h2>Generates random bytes from a CSPRNG</h2>
+<pre>getRandomBytes(int $length) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$length</h4>
+<code>int</code>
+</div>
+</div></div>
+</div>
+<h3>
+<i class="icon-custom icon-constant"></i> Constants</h3>
+<a id="constant_ALPHA_NUM"> </a><div class="element clickable constant  constant_ALPHA_NUM" data-toggle="collapse" data-target=".constant_ALPHA_NUM .collapse">
+<h2>ALPHA_NUM</h2>
+<pre>ALPHA_NUM </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="constant_CRYPT_BLOWFISH_EXTRA"> </a><div class="element clickable constant  constant_CRYPT_BLOWFISH_EXTRA" data-toggle="collapse" data-target=".constant_CRYPT_BLOWFISH_EXTRA .collapse">
+<h2>CRYPT_BLOWFISH_EXTRA</h2>
+<pre>CRYPT_BLOWFISH_EXTRA </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="constant_PRINTABLE_EXTRA"> </a><div class="element clickable constant  constant_PRINTABLE_EXTRA" data-toggle="collapse" data-target=".constant_PRINTABLE_EXTRA .collapse">
+<h2>PRINTABLE_EXTRA</h2>
+<pre>PRINTABLE_EXTRA </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="row"><footer class="span12">
+            Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by <a href="http://glyphicons.com/">Glyphicons</a>.<br>
+            Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.0.0a12</a> and<br>
+            generated on 2013-03-16T22:36:15-05:00.<br></footer></div>
+</div>
+</body>
+</html>

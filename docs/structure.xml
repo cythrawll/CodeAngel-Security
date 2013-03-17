@@ -1,0 +1,1233 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project version="2.0.0a12" title="">
+  <file path="TokenUtils.php" hash="baa1b96743dbaa15f8a3e956a313d739" package="TokenUtils">
+    <docblock line="2">
+      <description>CodeAngel Security Framework</description>
+      <long-description>&lt;p&gt;LICENSE&lt;/p&gt;
+
+&lt;p&gt;Copyright (c) 2011, Chad Minick
+All rights reserved.&lt;/p&gt;
+
+&lt;p&gt;Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.&lt;/li&gt;
+&lt;li&gt;Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
+THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR
+CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
+ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.&lt;/p&gt;</long-description>
+      <tag line="2" name="category" description="CodeAngel Security"/>
+      <tag line="2" name="package" description="TokenUtils"/>
+      <tag line="2" name="copyright" description="Copyright (c) 2011 Chad Minick"/>
+      <tag line="2" name="version" description="1.0M1-SNAPSHOT"/>
+    </docblock>
+    <class final="false" abstract="false" namespace="org\codeangel\security" line="36" package="Default">
+      <extends/>
+      <name>TokenUtils</name>
+      <full_name>\org\codeangel\security\TokenUtils</full_name>
+      <docblock line="29">
+        <description>use this class to generate tokens used for a variety of security purposes.</description>
+        <long-description>&lt;p&gt;Uses a cryptographic random function and a configurable alphabet to maximize entropy.&lt;/p&gt;</long-description>
+        <tag line="29" name="author" description="Chad Minick"/>
+      </docblock>
+      <constant namespace="org\codeangel\security" line="37" package="Default">
+        <name>ALPHA_NUM</name>
+        <full_name>ALPHA_NUM</full_name>
+        <value>"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"</value>
+      </constant>
+      <constant namespace="org\codeangel\security" line="39" package="Default">
+        <name>CRYPT_BLOWFISH_EXTRA</name>
+        <full_name>CRYPT_BLOWFISH_EXTRA</full_name>
+        <value>"./"</value>
+      </constant>
+      <constant namespace="org\codeangel\security" line="41" package="Default">
+        <name>PRINTABLE_EXTRA</name>
+        <full_name>PRINTABLE_EXTRA</full_name>
+        <value>"~.`!@#$%^&amp;*(){}[]':\"\\/.,|_+=-"</value>
+      </constant>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="org\codeangel\security" line="48" package="Default">
+        <name>getRandomBytes</name>
+        <full_name>getRandomBytes</full_name>
+        <docblock line="43">
+          <description>Generates random bytes from a CSPRNG</description>
+          <long-description/>
+          <tag line="43" name="param" description="" type="int" variable="$length">
+            <type by_reference="false">int</type>
+          </tag>
+        </docblock>
+        <argument line="48">
+          <name>$length</name>
+          <default/>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="org\codeangel\security" line="86" package="Default">
+        <name>generateTokenFromAlphabet</name>
+        <full_name>generateTokenFromAlphabet</full_name>
+        <docblock line="79">
+          <description>creates a token from the given alphabet.</description>
+          <long-description>&lt;p&gt;defaults alpha-numeric alphabet
+example:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$rand-&gt;generateTokenFromAlphabet(22, TokenUtils::ALPHANUM.TokenUtils::CRYPT_BLOWFISH_EXTRA);&lt;/code&gt;&lt;/pre&gt;</long-description>
+          <tag line="79" name="param" description="" type="integer" variable="$length">
+            <type by_reference="false">integer</type>
+          </tag>
+          <tag line="79" name="param" description="" type="string" variable="$alphabet">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+        <argument line="86">
+          <name>$length</name>
+          <default/>
+          <type/>
+        </argument>
+        <argument line="86">
+          <name>$alphabet</name>
+          <default>self::ALPHA_NUM</default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="org\codeangel\security" line="100" package="Default">
+        <name>generateToken</name>
+        <full_name>generateToken</full_name>
+        <docblock line="95">
+          <description>Generates alpha-numeric token</description>
+          <long-description/>
+          <tag line="95" name="param" description="" type="int" variable="$length">
+            <type by_reference="false">int</type>
+          </tag>
+        </docblock>
+        <argument line="100">
+          <name>$length</name>
+          <default/>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="org\codeangel\security" line="108" package="Default">
+        <name>generateCryptBlowfishSalt</name>
+        <full_name>generateCryptBlowfishSalt</full_name>
+        <docblock line="104">
+          <description>generates salt for use with crypt() blowfish algorithm.</description>
+          <long-description/>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="org\codeangel\security" line="117" package="Default">
+        <name>generateStrongToken</name>
+        <full_name>generateStrongToken</full_name>
+        <docblock line="112">
+          <description>Token generated with even more printable characters</description>
+          <long-description/>
+          <tag line="112" name="param" description="" type="int" variable="$length">
+            <type by_reference="false">int</type>
+          </tag>
+        </docblock>
+        <argument line="117">
+          <name>$length</name>
+          <default/>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="org\codeangel\security" line="126" package="Default">
+        <name>generateHexToken</name>
+        <full_name>generateHexToken</full_name>
+        <docblock line="121">
+          <description>For those that simply must have a hex token.</description>
+          <long-description/>
+          <tag line="121" name="param" description="must be Even number, if not even, will round down." type="int" variable="$length">
+            <type by_reference="false">int</type>
+          </tag>
+        </docblock>
+        <argument line="126">
+          <name>$length</name>
+          <default/>
+          <type/>
+        </argument>
+      </method>
+    </class>
+  </file>
+  <file path="passwords/PronPassword.php" hash="37a935c2da30675c749d2e5cd5e0ae29" package="Passwords">
+    <docblock line="2">
+      <description>CodeAngel Security Framework</description>
+      <long-description>&lt;p&gt;LICENSE&lt;/p&gt;
+
+&lt;p&gt;Copyright (c) 2011, 2012 Chad Minick
+All rights reserved.&lt;/p&gt;
+
+&lt;p&gt;Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.&lt;/li&gt;
+&lt;li&gt;Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
+THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR
+CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
+ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.&lt;/p&gt;</long-description>
+      <tag line="2" name="category" description="CodeAngel Security"/>
+      <tag line="2" name="package" description="Passwords"/>
+      <tag line="2" name="copyright" description="Copyright (c) 2011 Chad Minick"/>
+      <tag line="2" name="version" description="1.0M1-SNAPSHOT&#10;This code was a port of the pronounceable password generator in APG -- by Adel I. Mirzazhanov"/>
+    </docblock>
+    <class final="false" abstract="false" namespace="org\codeangel\security\passwords" line="32" package="Default">
+      <extends/>
+      <name>PronPassword</name>
+      <full_name>\org\codeangel\security\passwords\PronPassword</full_name>
+      <constant namespace="org\codeangel\security\passwords" line="34" package="Default">
+        <name>NOT_BEGIN_SYLLABLE</name>
+        <full_name>NOT_BEGIN_SYLLABLE</full_name>
+        <value>8</value>
+      </constant>
+      <constant namespace="org\codeangel\security\passwords" line="35" package="Default">
+        <name>NO_FINAL_SPLIT</name>
+        <full_name>NO_FINAL_SPLIT</full_name>
+        <value>4</value>
+      </constant>
+      <constant namespace="org\codeangel\security\passwords" line="36" package="Default">
+        <name>VOWEL</name>
+        <full_name>VOWEL</full_name>
+        <value>2</value>
+      </constant>
+      <constant namespace="org\codeangel\security\passwords" line="37" package="Default">
+        <name>ALTERNATE_VOWEL</name>
+        <full_name>ALTERNATE_VOWEL</full_name>
+        <value>1</value>
+      </constant>
+      <constant namespace="org\codeangel\security\passwords" line="38" package="Default">
+        <name>NO_SPECIAL_RULE</name>
+        <full_name>NO_SPECIAL_RULE</full_name>
+        <value>0</value>
+      </constant>
+      <constant namespace="org\codeangel\security\passwords" line="40" package="Default">
+        <name>BEGIN</name>
+        <full_name>BEGIN</full_name>
+        <value>128</value>
+      </constant>
+      <constant namespace="org\codeangel\security\passwords" line="41" package="Default">
+        <name>NOT_BEGIN</name>
+        <full_name>NOT_BEGIN</full_name>
+        <value>64</value>
+      </constant>
+      <constant namespace="org\codeangel\security\passwords" line="42" package="Default">
+        <name>BRAKE</name>
+        <full_name>BRAKE</full_name>
+        <value>32</value>
+      </constant>
+      <constant namespace="org\codeangel\security\passwords" line="43" package="Default">
+        <name>PREFIX</name>
+        <full_name>PREFIX</full_name>
+        <value>16</value>
+      </constant>
+      <constant namespace="org\codeangel\security\passwords" line="44" package="Default">
+        <name>ILLEGAL_PAIR</name>
+        <full_name>ILLEGAL_PAIR</full_name>
+        <value>8</value>
+      </constant>
+      <constant namespace="org\codeangel\security\passwords" line="45" package="Default">
+        <name>SUFFIX</name>
+        <full_name>SUFFIX</full_name>
+        <value>4</value>
+      </constant>
+      <constant namespace="org\codeangel\security\passwords" line="46" package="Default">
+        <name>END</name>
+        <full_name>END</full_name>
+        <value>2</value>
+      </constant>
+      <constant namespace="org\codeangel\security\passwords" line="47" package="Default">
+        <name>NOT_END</name>
+        <full_name>NOT_END</full_name>
+        <value>1</value>
+      </constant>
+      <constant namespace="org\codeangel\security\passwords" line="48" package="Default">
+        <name>ANY_COMBINATION</name>
+        <full_name>ANY_COMBINATION</full_name>
+        <value>0</value>
+      </constant>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="org\codeangel\security\passwords" line="55" package="Default">
+        <name>__construct</name>
+        <full_name>__construct</full_name>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="org\codeangel\security\passwords" line="1261" package="Default">
+        <name>genPass</name>
+        <full_name>genPass</full_name>
+        <docblock line="1255">
+          <description/>
+          <long-description/>
+          <tag line="1255" name="param" description="int Minimum Length of password" type="\org\codeangel\security\passwords\" variable="$minLen"/>
+          <tag line="1255" name="param" description="int Maximum Length of password, optional, if left out it will be the same as $minLen" type="null" variable="$maxLen">
+            <type by_reference="false">null</type>
+          </tag>
+          <tag line="1255" name="return" description="returns array of the = array($password, $pronounciation_key);" type="array">
+            <type by_reference="false">array</type>
+          </tag>
+          <tag line="1255" name="throws" description="" type="\Exception">
+            <type by_reference="false">\Exception</type>
+          </tag>
+        </docblock>
+        <argument line="1261">
+          <name>$minLen</name>
+          <default/>
+          <type/>
+        </argument>
+        <argument line="1261">
+          <name>$maxLen</name>
+          <default>null</default>
+          <type/>
+        </argument>
+      </method>
+    </class>
+    <markers>
+      <todo line="29">Needs lots of clean up since this is pretty much a direct port.</todo>
+    </markers>
+    <parse_markers>
+      <error line="32" code="50000">No DocBlock was found for \org\codeangel\security\passwords\PronPassword</error>
+      <error line="50" code="50018">No DocBlock was found for property $rules</error>
+      <error line="51" code="50018">No DocBlock was found for property $digram</error>
+      <error line="52" code="50018">No DocBlock was found for property $maxRetries</error>
+      <error line="1830" code="50018">No DocBlock was found for property $numbers</error>
+      <error line="1867" code="50018">No DocBlock was found for property $vowelNumber</error>
+      <error line="55" code="50010">No DocBlock was found for method __construct()</error>
+      <error line="1255" code="50012">No short description for method genPass()</error>
+      <error line="1277" code="50010">No DocBlock was found for method genWord()</error>
+      <error line="1334" code="50010">No DocBlock was found for method genSyllable()</error>
+      <error line="1683" code="50010">No DocBlock was found for method improperWord()</error>
+      <error line="1727" code="50010">No DocBlock was found for method haveInitialY()</error>
+      <error line="1752" code="50010">No DocBlock was found for method haveFinalSplit()</error>
+      <error line="1771" code="50010">No DocBlock was found for method illegalPlacement()</error>
+      <error line="1826" code="50010">No DocBlock was found for method allowed()</error>
+      <error line="1868" code="50010">No DocBlock was found for method randomUnit()</error>
+      <error line="1886" code="50010">No DocBlock was found for method symb2name()</error>
+    </parse_markers>
+  </file>
+  <file path="passwords/DefaultPasswordGenerator.php" hash="f620406e21c3fe172528dd940485dc5b" package="Passwords">
+    <docblock line="2">
+      <description>CodeAngel Security Framework</description>
+      <long-description>&lt;p&gt;LICENSE&lt;/p&gt;
+
+&lt;p&gt;Copyright (c) 2011, Chad Minick
+All rights reserved.&lt;/p&gt;
+
+&lt;p&gt;Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.&lt;/li&gt;
+&lt;li&gt;Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
+THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR
+CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
+ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.&lt;/p&gt;</long-description>
+      <tag line="2" name="category" description="CodeAngel Security"/>
+      <tag line="2" name="package" description="Passwords"/>
+      <tag line="2" name="copyright" description="Copyright (c) 2011 Chad Minick"/>
+      <tag line="2" name="version" description="1.0M1-SNAPSHOT"/>
+    </docblock>
+    <class final="false" abstract="false" namespace="org\codeangel\security\passwords" line="29" package="Default">
+      <extends>\org\codeangel\security\passwords\BlowFishCryptPasswordGenerator</extends>
+      <name>DefaultPasswordGenerator</name>
+      <full_name>\org\codeangel\security\passwords\DefaultPasswordGenerator</full_name>
+    </class>
+    <parse_markers>
+      <error line="29" code="50000">No DocBlock was found for \org\codeangel\security\passwords\DefaultPasswordGenerator</error>
+    </parse_markers>
+  </file>
+  <file path="passwords/Sha256CryptPasswordGenerator.php" hash="00761b5817595473cfce534bb94e12d7" package="Passwords">
+    <docblock line="2">
+      <description>CodeAngel Security Framework</description>
+      <long-description>&lt;p&gt;LICENSE&lt;/p&gt;
+
+&lt;p&gt;Copyright (c) 2011, Chad Minick
+All rights reserved.&lt;/p&gt;
+
+&lt;p&gt;Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.&lt;/li&gt;
+&lt;li&gt;Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
+THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR
+CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
+ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.&lt;/p&gt;</long-description>
+      <tag line="2" name="category" description="CodeAngel Security"/>
+      <tag line="2" name="package" description="Passwords"/>
+      <tag line="2" name="copyright" description="Copyright (c) 2011 Chad Minick"/>
+      <tag line="2" name="version" description="1.0M1-SNAPSHOT"/>
+    </docblock>
+    <class final="false" abstract="false" namespace="org\codeangel\security\passwords" line="29" package="Default">
+      <extends>\org\codeangel\security\passwords\ShaCryptPasswordGenerator</extends>
+      <name>Sha256CryptPasswordGenerator</name>
+      <full_name>\org\codeangel\security\passwords\Sha256CryptPasswordGenerator</full_name>
+    </class>
+    <parse_markers>
+      <error line="29" code="50000">No DocBlock was found for \org\codeangel\security\passwords\Sha256CryptPasswordGenerator</error>
+      <error line="30" code="50018">No DocBlock was found for property $format</error>
+    </parse_markers>
+  </file>
+  <file path="passwords/SqliteWordList.php" hash="815a039733df041369d4719e21fda669" package="Passwords">
+    <docblock line="2">
+      <description>CodeAngel Security Framework</description>
+      <long-description>&lt;p&gt;LICENSE&lt;/p&gt;
+
+&lt;p&gt;Copyright (c) 2012, Chad Minick
+All rights reserved.&lt;/p&gt;
+
+&lt;p&gt;Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.&lt;/li&gt;
+&lt;li&gt;Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
+THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR
+CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
+ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.&lt;/p&gt;</long-description>
+      <tag line="2" name="category" description="CodeAngel Security"/>
+      <tag line="2" name="package" description="Passwords"/>
+      <tag line="2" name="copyright" description="Copyright (c) 2012 Chad Minick"/>
+      <tag line="2" name="version" description="1.0M1-SNAPSHOT"/>
+    </docblock>
+    <class final="false" abstract="false" namespace="org\codeangel\security\passwords" line="29" package="Default">
+      <extends/>
+      <implements>\org\codeangel\security\passwords\WordList</implements>
+      <name>SqliteWordList</name>
+      <full_name>\org\codeangel\security\passwords\SqliteWordList</full_name>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="org\codeangel\security\passwords" line="33" package="Default">
+        <name>__construct</name>
+        <full_name>__construct</full_name>
+        <argument line="33">
+          <name>$file</name>
+          <default/>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="org\codeangel\security\passwords" line="37" package="Default">
+        <name>check</name>
+        <full_name>check</full_name>
+        <argument line="37">
+          <name>$word</name>
+          <default/>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="org\codeangel\security\passwords" line="53" package="Default">
+        <name>getDB</name>
+        <full_name>getDB</full_name>
+      </method>
+    </class>
+    <parse_markers>
+      <error line="29" code="50000">No DocBlock was found for \org\codeangel\security\passwords\SqliteWordList</error>
+      <error line="31" code="50018">No DocBlock was found for property $db</error>
+      <error line="33" code="50010">No DocBlock was found for method __construct()</error>
+      <error line="37" code="50010">No DocBlock was found for method check()</error>
+      <error line="53" code="50010">No DocBlock was found for method getDB()</error>
+    </parse_markers>
+  </file>
+  <file path="passwords/BlowFishCryptPasswordGenerator.php" hash="c5fcc703515b8c009eae076f8099776c" package="Passwords">
+    <docblock line="2">
+      <description>CodeAngel Security Framework</description>
+      <long-description>&lt;p&gt;LICENSE&lt;/p&gt;
+
+&lt;p&gt;Copyright (c) 2011, Chad Minick
+All rights reserved.&lt;/p&gt;
+
+&lt;p&gt;Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.&lt;/li&gt;
+&lt;li&gt;Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
+THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR
+CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
+ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.&lt;/p&gt;</long-description>
+      <tag line="2" name="category" description="CodeAngel Security"/>
+      <tag line="2" name="package" description="Passwords"/>
+      <tag line="2" name="copyright" description="Copyright (c) 2011 Chad Minick"/>
+      <tag line="2" name="version" description="1.0M1-SNAPSHOT"/>
+    </docblock>
+    <class final="false" abstract="false" namespace="org\codeangel\security\passwords" line="31" package="Default">
+      <extends>\org\codeangel\security\passwords\CryptPasswordGenerator</extends>
+      <name>BlowFishCryptPasswordGenerator</name>
+      <full_name>\org\codeangel\security\passwords\BlowFishCryptPasswordGenerator</full_name>
+    </class>
+    <parse_markers>
+      <error line="31" code="50000">No DocBlock was found for \org\codeangel\security\passwords\BlowFishCryptPasswordGenerator</error>
+      <error line="32" code="50018">No DocBlock was found for property $minRounds</error>
+      <error line="33" code="50018">No DocBlock was found for property $maxRounds</error>
+      <error line="34" code="50018">No DocBlock was found for property $format</error>
+      <error line="36" code="50010">No DocBlock was found for method getSalt()</error>
+    </parse_markers>
+  </file>
+  <file path="passwords/CryptPasswordGenerator.php" hash="8f2768d4a9fdd7eb24a1ab92369c04d3" package="Passwords">
+    <docblock line="2">
+      <description>CodeAngel Security Framework</description>
+      <long-description>&lt;p&gt;LICENSE&lt;/p&gt;
+
+&lt;p&gt;Copyright (c) 2011, Chad Minick
+All rights reserved.&lt;/p&gt;
+
+&lt;p&gt;Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.&lt;/li&gt;
+&lt;li&gt;Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
+THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR
+CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
+ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.&lt;/p&gt;</long-description>
+      <tag line="2" name="category" description="CodeAngel Security"/>
+      <tag line="2" name="package" description="Passwords"/>
+      <tag line="2" name="copyright" description="Copyright (c) 2011 Chad Minick"/>
+      <tag line="2" name="version" description="1.0M1-SNAPSHOT"/>
+    </docblock>
+    <class final="false" abstract="true" namespace="org\codeangel\security\passwords" line="29" package="Default">
+      <extends/>
+      <implements>\org\codeangel\security\passwords\PasswordGenerator</implements>
+      <name>CryptPasswordGenerator</name>
+      <full_name>\org\codeangel\security\passwords\CryptPasswordGenerator</full_name>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="org\codeangel\security\passwords" line="48" package="Default">
+        <name>genPassword</name>
+        <full_name>genPassword</full_name>
+        <docblock line="43">
+          <description>hashes a password</description>
+          <long-description/>
+          <tag line="43" name="param" description="string password to hash" type="\org\codeangel\security\passwords\" variable="$password"/>
+          <tag line="43" name="return" description="hashed password" type="string">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+        <argument line="48">
+          <name>$password</name>
+          <default/>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="org\codeangel\security\passwords" line="58" package="Default">
+        <name>checkPassword</name>
+        <full_name>checkPassword</full_name>
+        <docblock line="52">
+          <description>Checks entered password matches the hash</description>
+          <long-description/>
+          <tag line="52" name="param" description="string password that the user supplied" type="\org\codeangel\security\passwords\" variable="$password"/>
+          <tag line="52" name="param" description="string hash from storage (eg. from your database)" type="\org\codeangel\security\passwords\" variable="$expected"/>
+          <tag line="52" name="return" description="whether or not the password matched or not" type="bool">
+            <type by_reference="false">bool</type>
+          </tag>
+        </docblock>
+        <argument line="58">
+          <name>$password</name>
+          <default/>
+          <type/>
+        </argument>
+        <argument line="58">
+          <name>$expected</name>
+          <default/>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="org\codeangel\security\passwords" line="67" package="Default">
+        <name>setCost</name>
+        <full_name>setCost</full_name>
+        <docblock line="62">
+          <description>overrides default cost of the hash, will randomize between min and max.</description>
+          <long-description/>
+          <tag line="62" name="param" description="" type="\org\codeangel\security\passwords\" variable="$min"/>
+          <tag line="62" name="param" description="" type="\org\codeangel\security\passwords\" variable="$max"/>
+        </docblock>
+        <argument line="67">
+          <name>$min</name>
+          <default/>
+          <type/>
+        </argument>
+        <argument line="67">
+          <name>$max</name>
+          <default/>
+          <type/>
+        </argument>
+      </method>
+    </class>
+    <parse_markers>
+      <error line="29" code="50000">No DocBlock was found for \org\codeangel\security\passwords\CryptPasswordGenerator</error>
+      <error line="30" code="50018">No DocBlock was found for property $minRounds</error>
+      <error line="31" code="50018">No DocBlock was found for property $maxRounds</error>
+      <error line="32" code="50018">No DocBlock was found for property $format</error>
+      <error line="34" code="50010">No DocBlock was found for method getSalt()</error>
+      <error line="36" code="50010">No DocBlock was found for method getFormat()</error>
+    </parse_markers>
+  </file>
+  <file path="passwords/KoremutakePassword.php" hash="73c0f4183339c5504c816b1bc3f0faa4" package="Passwords">
+    <docblock line="2">
+      <description>CodeAngel Security Framework</description>
+      <long-description>&lt;p&gt;LICENSE&lt;/p&gt;
+
+&lt;p&gt;Copyright (c) 2012, Chad Minick
+All rights reserved.&lt;/p&gt;
+
+&lt;p&gt;Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.&lt;/li&gt;
+&lt;li&gt;Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
+THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR
+CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
+ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.&lt;/p&gt;</long-description>
+      <tag line="2" name="category" description="CodeAngel Security"/>
+      <tag line="2" name="package" description="Passwords"/>
+      <tag line="2" name="copyright" description="Copyright (c) 2012 Chad Minick"/>
+      <tag line="2" name="version" description="1.0M1-SNAPSHOT"/>
+    </docblock>
+    <class final="false" abstract="false" namespace="org\codeangel\security\passwords" line="32" package="Default">
+      <extends/>
+      <name>KoremutakePassword</name>
+      <full_name>\org\codeangel\security\passwords\KoremutakePassword</full_name>
+      <docblock line="29">
+        <description>Koremetake generator, see http://shorl.com/koremutake for details</description>
+        <long-description/>
+      </docblock>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="org\codeangel\security\passwords" line="84" package="Default">
+        <name>integerToKoremutake</name>
+        <full_name>integerToKoremutake</full_name>
+        <docblock line="78">
+          <description>Returns a koremetake representation of an integer</description>
+          <long-description/>
+          <tag line="78" name="param" description="" type="int" variable="$int">
+            <type by_reference="false">int</type>
+          </tag>
+          <tag line="78" name="return" description="koremetake representation of integer" type="string">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="78" name="throws" description="throws if $int is negative" type="\Exception">
+            <type by_reference="false">\Exception</type>
+          </tag>
+        </docblock>
+        <argument line="84">
+          <name>$int</name>
+          <default/>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="org\codeangel\security\passwords" line="107" package="Default">
+        <name>koremutakeToInteger</name>
+        <full_name>koremutakeToInteger</full_name>
+        <docblock line="101">
+          <description>Returns integer from a koremetake string</description>
+          <long-description/>
+          <tag line="101" name="param" description="koremetake string" type="string" variable="$string">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="101" name="return" description="integer representation of string" type="int">
+            <type by_reference="false">int</type>
+          </tag>
+          <tag line="101" name="throws" description="throws if string is not a valid koremetake string" type="\Exception">
+            <type by_reference="false">\Exception</type>
+          </tag>
+        </docblock>
+        <argument line="107">
+          <name>$string</name>
+          <default/>
+          <type/>
+        </argument>
+      </method>
+    </class>
+    <parse_markers>
+      <error line="33" code="50018">No DocBlock was found for property $phonemes</error>
+      <error line="44" code="50010">No DocBlock was found for method numbersToKoremutake()</error>
+      <error line="59" code="50010">No DocBlock was found for method koremutakeToNumbers()</error>
+    </parse_markers>
+  </file>
+  <file path="passwords/PasswordUtils.php" hash="36aa2d928f998590707a51cb469b6dfa" package="Passwords">
+    <docblock line="2">
+      <description>CodeAngel Security Framework</description>
+      <long-description>&lt;p&gt;LICENSE&lt;/p&gt;
+
+&lt;p&gt;Copyright (c) 2011, 2012 Chad Minick
+All rights reserved.&lt;/p&gt;
+
+&lt;p&gt;Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.&lt;/li&gt;
+&lt;li&gt;Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
+THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR
+CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
+ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.&lt;/p&gt;</long-description>
+      <tag line="2" name="category" description="CodeAngel Security"/>
+      <tag line="2" name="package" description="Passwords"/>
+      <tag line="2" name="copyright" description="Copyright (c) 2011 Chad Minick"/>
+      <tag line="2" name="version" description="1.0M1-SNAPSHOT&#10;This code was a port of the pronounceable password generator in APG -- by Adel I. Mirzazhanov"/>
+    </docblock>
+    <class final="false" abstract="false" namespace="org\codeangel\security\passwords" line="31" package="Default">
+      <extends/>
+      <name>PasswordUtils</name>
+      <full_name>\org\codeangel\security\passwords\PasswordUtils</full_name>
+      <method final="false" abstract="false" static="true" visibility="public" namespace="org\codeangel\security\passwords" line="39" package="Default">
+        <name>randomCaptilize</name>
+        <full_name>randomCaptilize</full_name>
+        <docblock line="33">
+          <description>Takes a string and randomly capitilizes letters</description>
+          <long-description/>
+          <tag line="33" name="static" description=""/>
+          <tag line="33" name="param" description="" type="string" variable="$string">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="33" name="return" description="" type="string">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+        <argument line="39">
+          <name>$string</name>
+          <default/>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="true" visibility="public" namespace="org\codeangel\security\passwords" line="58" package="Default">
+        <name>capitilizeAlternating</name>
+        <full_name>capitilizeAlternating</full_name>
+        <docblock line="51">
+          <description>Takes a string and capitilizes every other word</description>
+          <long-description/>
+          <tag line="51" name="static" description=""/>
+          <tag line="51" name="param" description="" type="string" variable="$string">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="51" name="param" description="Whether to start capitilizing even or odd characters." type="bool" variable="$even">
+            <type by_reference="false">bool</type>
+          </tag>
+          <tag line="51" name="return" description="" type="string">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+        <argument line="58">
+          <name>$string</name>
+          <default/>
+          <type/>
+        </argument>
+        <argument line="58">
+          <name>$even</name>
+          <default>true</default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="true" visibility="public" namespace="org\codeangel\security\passwords" line="79" package="Default">
+        <name>numerize</name>
+        <full_name>numerize</full_name>
+        <docblock line="72">
+          <description>Takes a string and replaces certain letters with numbers</description>
+          <long-description/>
+          <tag line="72" name="static" description=""/>
+          <tag line="72" name="param" description="" type="string" variable="$string">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="72" name="param" description="Some letter replacement depends on case, set to true to make it case insensitive" type="bool" variable="$ignoreCase">
+            <type by_reference="false">bool</type>
+          </tag>
+          <tag line="72" name="return" description="" type="string">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+        <argument line="79">
+          <name>$string</name>
+          <default/>
+          <type/>
+        </argument>
+        <argument line="79">
+          <name>$ignoreCase</name>
+          <default>false</default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="true" visibility="public" namespace="org\codeangel\security\passwords" line="91" package="Default">
+        <name>symbolize</name>
+        <full_name>symbolize</full_name>
+        <docblock line="84">
+          <description>Takes a string and replaces certain letters with special chars.</description>
+          <long-description/>
+          <tag line="84" name="static" description=""/>
+          <tag line="84" name="param" description="" type="string" variable="$string">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="84" name="param" description="Some letter replacement depends on case, set to true to make it case insensitive" type="bool" variable="$ignoreCase">
+            <type by_reference="false">bool</type>
+          </tag>
+          <tag line="84" name="return" description="" type="string">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+        <argument line="91">
+          <name>$string</name>
+          <default/>
+          <type/>
+        </argument>
+        <argument line="91">
+          <name>$ignoreCase</name>
+          <default>false</default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="true" visibility="public" namespace="org\codeangel\security\passwords" line="103" package="Default">
+        <name>numsymolize</name>
+        <full_name>numsymolize</full_name>
+        <docblock line="96">
+          <description>Takes a string and replaces certain letters with either numbers or special chars.</description>
+          <long-description/>
+          <tag line="96" name="static" description=""/>
+          <tag line="96" name="param" description="" type="string" variable="$string">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="96" name="param" description="Some letter replacement depends on case, set to true to make it case insensitive" type="bool" variable="$ignoreCase">
+            <type by_reference="false">bool</type>
+          </tag>
+          <tag line="96" name="return" description="" type="string">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+        <argument line="103">
+          <name>$string</name>
+          <default/>
+          <type/>
+        </argument>
+        <argument line="103">
+          <name>$ignoreCase</name>
+          <default>false</default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="true" visibility="public" namespace="org\codeangel\security\passwords" line="119" package="Default">
+        <name>compare</name>
+        <full_name>compare</full_name>
+        <argument line="119">
+          <name>$str1</name>
+          <default/>
+          <type/>
+        </argument>
+        <argument line="119">
+          <name>$str2</name>
+          <default/>
+          <type/>
+        </argument>
+      </method>
+    </class>
+    <parse_markers>
+      <error line="31" code="50000">No DocBlock was found for \org\codeangel\security\passwords\PasswordUtils</error>
+      <error line="107" code="50010">No DocBlock was found for method replace()</error>
+      <error line="119" code="50010">No DocBlock was found for method compare()</error>
+    </parse_markers>
+  </file>
+  <file path="passwords/PasswordGenerator.php" hash="56333f81b2baf8b22ad22f57b491d240" package="Passwords">
+    <docblock line="2">
+      <description>CodeAngel Security Framework</description>
+      <long-description>&lt;p&gt;LICENSE&lt;/p&gt;
+
+&lt;p&gt;Copyright (c) 2011, Chad Minick
+All rights reserved.&lt;/p&gt;
+
+&lt;p&gt;Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.&lt;/li&gt;
+&lt;li&gt;Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
+THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR
+CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
+ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.&lt;/p&gt;</long-description>
+      <tag line="2" name="category" description="CodeAngel Security"/>
+      <tag line="2" name="package" description="Passwords"/>
+      <tag line="2" name="copyright" description="Copyright (c) 2011 Chad Minick"/>
+      <tag line="2" name="version" description="1.0M1-SNAPSHOT"/>
+    </docblock>
+    <interface namespace="org\codeangel\security\passwords" line="29" package="Default">
+      <name>PasswordGenerator</name>
+      <full_name>\org\codeangel\security\passwords\PasswordGenerator</full_name>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="org\codeangel\security\passwords" line="30" package="Default">
+        <name>genPassword</name>
+        <full_name>genPassword</full_name>
+        <argument line="30">
+          <name>$password</name>
+          <default/>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="org\codeangel\security\passwords" line="31" package="Default">
+        <name>checkPassword</name>
+        <full_name>checkPassword</full_name>
+        <argument line="31">
+          <name>$password</name>
+          <default/>
+          <type/>
+        </argument>
+        <argument line="31">
+          <name>$expected</name>
+          <default/>
+          <type/>
+        </argument>
+      </method>
+    </interface>
+    <parse_markers>
+      <error line="30" code="50010">No DocBlock was found for method genPassword()</error>
+      <error line="31" code="50010">No DocBlock was found for method checkPassword()</error>
+    </parse_markers>
+  </file>
+  <file path="passwords/WordList.php" hash="4c78cd2f49961a3768ecfc3d86861443" package="Passwords">
+    <docblock line="2">
+      <description>CodeAngel Security Framework</description>
+      <long-description>&lt;p&gt;LICENSE&lt;/p&gt;
+
+&lt;p&gt;Copyright (c) 2012, Chad Minick
+All rights reserved.&lt;/p&gt;
+
+&lt;p&gt;Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.&lt;/li&gt;
+&lt;li&gt;Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
+THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR
+CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
+ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.&lt;/p&gt;</long-description>
+      <tag line="2" name="category" description="CodeAngel Security"/>
+      <tag line="2" name="package" description="Passwords"/>
+      <tag line="2" name="copyright" description="Copyright (c) 2012 Chad Minick"/>
+      <tag line="2" name="version" description="1.0M1-SNAPSHOT"/>
+    </docblock>
+    <interface namespace="org\codeangel\security\passwords" line="33" package="Default">
+      <name>WordList</name>
+      <full_name>\org\codeangel\security\passwords\WordList</full_name>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="org\codeangel\security\passwords" line="34" package="Default">
+        <name>check</name>
+        <full_name>check</full_name>
+        <argument line="34">
+          <name>$word</name>
+          <default/>
+          <type/>
+        </argument>
+      </method>
+    </interface>
+    <parse_markers>
+      <error line="34" code="50010">No DocBlock was found for method check()</error>
+    </parse_markers>
+  </file>
+  <file path="passwords/ShaCryptPasswordGenerator.php" hash="907115617b31cbc7281e7388c7d6a2fe" package="Passwords">
+    <docblock line="2">
+      <description>CodeAngel Security Framework</description>
+      <long-description>&lt;p&gt;LICENSE&lt;/p&gt;
+
+&lt;p&gt;Copyright (c) 2011, Chad Minick
+All rights reserved.&lt;/p&gt;
+
+&lt;p&gt;Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.&lt;/li&gt;
+&lt;li&gt;Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
+THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR
+CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
+ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.&lt;/p&gt;</long-description>
+      <tag line="2" name="category" description="CodeAngel Security"/>
+      <tag line="2" name="package" description="Passwords"/>
+      <tag line="2" name="copyright" description="Copyright (c) 2011 Chad Minick"/>
+      <tag line="2" name="version" description="1.0M1-SNAPSHOT"/>
+    </docblock>
+    <class final="false" abstract="true" namespace="org\codeangel\security\passwords" line="31" package="Default">
+      <extends>\org\codeangel\security\passwords\CryptPasswordGenerator</extends>
+      <name>ShaCryptPasswordGenerator</name>
+      <full_name>\org\codeangel\security\passwords\ShaCryptPasswordGenerator</full_name>
+    </class>
+    <parse_markers>
+      <error line="31" code="50000">No DocBlock was found for \org\codeangel\security\passwords\ShaCryptPasswordGenerator</error>
+      <error line="32" code="50018">No DocBlock was found for property $minRounds</error>
+      <error line="33" code="50018">No DocBlock was found for property $maxRounds</error>
+      <error line="35" code="50010">No DocBlock was found for method getSalt()</error>
+    </parse_markers>
+  </file>
+  <file path="passwords/PasswordStrength.php" hash="a3bb054ae574bf1d03e9c7d6ad4bf59a" package="Passwords">
+    <docblock line="2">
+      <description>CodeAngel Security Framework</description>
+      <long-description>&lt;p&gt;LICENSE&lt;/p&gt;
+
+&lt;p&gt;Copyright (c) 2012, Chad Minick
+All rights reserved.&lt;/p&gt;
+
+&lt;p&gt;Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.&lt;/li&gt;
+&lt;li&gt;Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
+THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR
+CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
+ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.&lt;/p&gt;</long-description>
+      <tag line="2" name="category" description="CodeAngel Security"/>
+      <tag line="2" name="package" description="Passwords"/>
+      <tag line="2" name="copyright" description="Copyright (c) 2012 Chad Minick"/>
+      <tag line="2" name="version" description="1.0M1-SNAPSHOT"/>
+    </docblock>
+    <class final="false" abstract="false" namespace="org\codeangel\security\passwords" line="33" package="Default">
+      <extends/>
+      <name>PasswordStrength</name>
+      <full_name>\org\codeangel\security\passwords\PasswordStrength</full_name>
+      <docblock line="29">
+        <description>Calculates password strength by calculating entropy
+uses formula length * log(alphabetsize, 2);</description>
+        <long-description/>
+      </docblock>
+      <constant namespace="org\codeangel\security\passwords" line="34" package="Default">
+        <name>VERY_WEAK</name>
+        <full_name>VERY_WEAK</full_name>
+        <value>0</value>
+      </constant>
+      <constant namespace="org\codeangel\security\passwords" line="35" package="Default">
+        <name>WEAK</name>
+        <full_name>WEAK</full_name>
+        <value>1</value>
+      </constant>
+      <constant namespace="org\codeangel\security\passwords" line="36" package="Default">
+        <name>FAIR</name>
+        <full_name>FAIR</full_name>
+        <value>2</value>
+      </constant>
+      <constant namespace="org\codeangel\security\passwords" line="37" package="Default">
+        <name>STRONG</name>
+        <full_name>STRONG</full_name>
+        <value>3</value>
+      </constant>
+      <constant namespace="org\codeangel\security\passwords" line="38" package="Default">
+        <name>VERY_STRONG</name>
+        <full_name>VERY_STRONG</full_name>
+        <value>4</value>
+      </constant>
+      <constant namespace="org\codeangel\security\passwords" line="40" package="Default">
+        <name>START_SCORE</name>
+        <full_name>START_SCORE</full_name>
+        <value>100</value>
+      </constant>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="org\codeangel\security\passwords" line="57" package="Default">
+        <name>__construct</name>
+        <full_name>__construct</full_name>
+        <docblock line="53">
+          <description/>
+          <long-description/>
+          <tag line="53" name="param" description="optionally pass password to calculate entropy" type="string" variable="$password">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="53" name="param" description="&lt;Optional&gt; used to see if password could be cracked with a simple dictionary lookup" type="\org\codeangel\security\passwords\WordList" variable="$dict">
+            <type by_reference="false">\org\codeangel\security\passwords\WordList</type>
+          </tag>
+        </docblock>
+        <argument line="57">
+          <name>$password</name>
+          <default>null</default>
+          <type/>
+        </argument>
+        <argument line="57">
+          <name>$dict</name>
+          <default>null</default>
+          <type>\org\codeangel\security\passwords\WordList</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="org\codeangel\security\passwords" line="70" package="Default">
+        <name>getAlphabet</name>
+        <full_name>getAlphabet</full_name>
+        <docblock line="65">
+          <description>Calculates alphabet size for entropy calculation</description>
+          <long-description/>
+          <tag line="65" name="param" description="" type="string" variable="$password">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="65" name="return" description="" type="int">
+            <type by_reference="false">int</type>
+          </tag>
+        </docblock>
+        <argument line="70">
+          <name>$password</name>
+          <default/>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="org\codeangel\security\passwords" line="112" package="Default">
+        <name>getEntropy</name>
+        <full_name>getEntropy</full_name>
+        <docblock line="108">
+          <description>Returns the entropy of the password</description>
+          <long-description/>
+          <tag line="108" name="return" description="returns entropy of the password" type="float">
+            <type by_reference="false">float</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="org\codeangel\security\passwords" line="120" package="Default">
+        <name>getScore</name>
+        <full_name>getScore</full_name>
+        <docblock line="116">
+          <description>Returns password score</description>
+          <long-description/>
+          <tag line="116" name="return" description="score of password;" type="int">
+            <type by_reference="false">int</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="org\codeangel\security\passwords" line="128" package="Default">
+        <name>isFoundInDictionary</name>
+        <full_name>isFoundInDictionary</full_name>
+        <docblock line="124">
+          <description>Returns if the word was found in a dictionary or not.</description>
+          <long-description/>
+          <tag line="124" name="return" description="whether the word was found in a dictionary or not." type="bool">
+            <type by_reference="false">bool</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="org\codeangel\security\passwords" line="169" package="Default">
+        <name>getStrength</name>
+        <full_name>getStrength</full_name>
+        <docblock line="163">
+          <description>Calculates the general strength of the password.</description>
+          <long-description>&lt;p&gt;matched against the constants:
+PasswordStrength::VERY_WEAK, PasswordStrength::WEAK, PasswordStrength::FAIR
+PasswordStrength::STRONG, PasswordStrength::VERY_STRONG&lt;/p&gt;</long-description>
+          <tag line="163" name="return" description="Calculates the general strength of the password." type="int">
+            <type by_reference="false">int</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="org\codeangel\security\passwords" line="188" package="Default">
+        <name>strengthWord</name>
+        <full_name>strengthWord</full_name>
+        <docblock line="183">
+          <description>convenience method to return word representation of password strength
+"very weak", "weak", "fair", "strong", "very strong"</description>
+          <long-description/>
+          <tag line="183" name="return" description="word used to describe password strength" type="string">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="org\codeangel\security\passwords" line="216" package="Default">
+        <name>setPassword</name>
+        <full_name>setPassword</full_name>
+        <docblock line="212">
+          <description>sets the password</description>
+          <long-description/>
+          <tag line="212" name="param" description="" type="string" variable="$password">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+        <argument line="216">
+          <name>$password</name>
+          <default/>
+          <type/>
+        </argument>
+      </method>
+    </class>
+    <parse_markers>
+      <error line="42" code="50018">No DocBlock was found for property $entropy</error>
+      <error line="43" code="50018">No DocBlock was found for property $score</error>
+      <error line="44" code="50018">No DocBlock was found for property $foundInDictionary</error>
+      <error line="45" code="50018">No DocBlock was found for property $dict</error>
+      <error line="47" code="50010">No DocBlock was found for method init()</error>
+      <error line="53" code="50012">No short description for method __construct()</error>
+      <error line="103" code="50010">No DocBlock was found for method entropy()</error>
+      <error line="132" code="50010">No DocBlock was found for method score()</error>
+    </parse_markers>
+  </file>
+  <file path="passwords/Sha512CryptPasswordGenerator.php" hash="0e1de121a72c1ce0a42d5dc38cef87a6" package="Passwords">
+    <docblock line="2">
+      <description>CodeAngel Security Framework</description>
+      <long-description>&lt;p&gt;LICENSE&lt;/p&gt;
+
+&lt;p&gt;Copyright (c) 2011, Chad Minick
+All rights reserved.&lt;/p&gt;
+
+&lt;p&gt;Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.&lt;/li&gt;
+&lt;li&gt;Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
+THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR
+CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
+ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.&lt;/p&gt;</long-description>
+      <tag line="2" name="category" description="CodeAngel Security"/>
+      <tag line="2" name="package" description="Passwords"/>
+      <tag line="2" name="copyright" description="Copyright (c) 2011 Chad Minick"/>
+      <tag line="2" name="version" description="1.0M1-SNAPSHOT"/>
+    </docblock>
+    <class final="false" abstract="false" namespace="org\codeangel\security\passwords" line="29" package="Default">
+      <extends>\org\codeangel\security\passwords\ShaCryptPasswordGenerator</extends>
+      <name>Sha512CryptPasswordGenerator</name>
+      <full_name>\org\codeangel\security\passwords\Sha512CryptPasswordGenerator</full_name>
+    </class>
+    <parse_markers>
+      <error line="29" code="50000">No DocBlock was found for \org\codeangel\security\passwords\Sha512CryptPasswordGenerator</error>
+      <error line="30" code="50018">No DocBlock was found for property $format</error>
+    </parse_markers>
+  </file>
+  <package name="Default" full_name="Default"/>
+  <package name="Passwords" full_name="Passwords"/>
+  <package name="TokenUtils" full_name="TokenUtils"/>
+  <namespace name="org" full_name="org">
+    <namespace name="codeangel" full_name="org\codeangel">
+      <namespace name="security" full_name="org\codeangel\security">
+        <namespace name="passwords" full_name="org\codeangel\security\passwords"/>
+      </namespace>
+    </namespace>
+  </namespace>
+  <marker count="1">todo</marker>
+  <marker count="0">fixme</marker>
+  <deprecated count="0"/>
+</project>
