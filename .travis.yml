@@ -7,4 +7,3 @@ notifications:
   email:
     - cythrawll@codeangel.org
 before_script: composer install
-script: phpunit
