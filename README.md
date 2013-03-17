@@ -6,7 +6,7 @@ Codeangel Security Framework for PHP
 ##Installation
 
 With Composer:
-You can install with [[composer|http://getcomposer.org/]], Simply add to your composer.json
+You can install with [composer](http://getcomposer.org/), Simply add to your composer.json
 ```javascript
 {
     "require": {
