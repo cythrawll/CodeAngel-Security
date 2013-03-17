@@ -1,6 +1,8 @@
 Codeangel Security Framework for PHP
 ====================================
 
+[![Build Status](https://travis-ci.org/cythrawll/CodeAngel-Security.png?branch=master)](https://travis-ci.org/cythrawll/CodeAngel-Security)
+
 ##Installation
 
 With Composer:
