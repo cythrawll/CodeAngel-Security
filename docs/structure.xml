@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<project version="2.0.0a12" title="">
+<project version="2.0.0a12" title="Codeangel Security">
   <file path="TokenUtils.php" hash="baa1b96743dbaa15f8a3e956a313d739" package="TokenUtils">
     <docblock line="2">
       <description>CodeAngel Security Framework</description>
@@ -55,14 +55,14 @@ ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.&lt;/p&gt;</long-description>
         <full_name>getRandomBytes</full_name>
         <docblock line="43">
           <description>Generates random bytes from a CSPRNG</description>
-          <long-description/>
+          <long-description></long-description>
           <tag line="43" name="param" description="" type="int" variable="$length">
             <type by_reference="false">int</type>
           </tag>
         </docblock>
         <argument line="48">
           <name>$length</name>
-          <default/>
+          <default></default>
           <type/>
         </argument>
       </method>
@@ -84,7 +84,7 @@ example:&lt;/p&gt;
         </docblock>
         <argument line="86">
           <name>$length</name>
-          <default/>
+          <default></default>
           <type/>
         </argument>
         <argument line="86">
@@ -98,14 +98,14 @@ example:&lt;/p&gt;
         <full_name>generateToken</full_name>
         <docblock line="95">
           <description>Generates alpha-numeric token</description>
-          <long-description/>
+          <long-description></long-description>
           <tag line="95" name="param" description="" type="int" variable="$length">
             <type by_reference="false">int</type>
           </tag>
         </docblock>
         <argument line="100">
           <name>$length</name>
-          <default/>
+          <default></default>
           <type/>
         </argument>
       </method>
@@ -114,7 +114,7 @@ example:&lt;/p&gt;
         <full_name>generateCryptBlowfishSalt</full_name>
         <docblock line="104">
           <description>generates salt for use with crypt() blowfish algorithm.</description>
-          <long-description/>
+          <long-description></long-description>
         </docblock>
       </method>
       <method final="false" abstract="false" static="false" visibility="public" namespace="org\codeangel\security" line="117" package="Default">
@@ -122,14 +122,14 @@ example:&lt;/p&gt;
         <full_name>generateStrongToken</full_name>
         <docblock line="112">
           <description>Token generated with even more printable characters</description>
-          <long-description/>
+          <long-description></long-description>
           <tag line="112" name="param" description="" type="int" variable="$length">
             <type by_reference="false">int</type>
           </tag>
         </docblock>
         <argument line="117">
           <name>$length</name>
-          <default/>
+          <default></default>
           <type/>
         </argument>
       </method>
@@ -138,14 +138,14 @@ example:&lt;/p&gt;
         <full_name>generateHexToken</full_name>
         <docblock line="121">
           <description>For those that simply must have a hex token.</description>
-          <long-description/>
+          <long-description></long-description>
           <tag line="121" name="param" description="must be Even number, if not even, will round down." type="int" variable="$length">
             <type by_reference="false">int</type>
           </tag>
         </docblock>
         <argument line="126">
           <name>$length</name>
-          <default/>
+          <default></default>
           <type/>
         </argument>
       </method>
@@ -259,8 +259,8 @@ ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.&lt;/p&gt;</long-description>
         <name>genPass</name>
         <full_name>genPass</full_name>
         <docblock line="1255">
-          <description/>
-          <long-description/>
+          <description></description>
+          <long-description></long-description>
           <tag line="1255" name="param" description="int Minimum Length of password" type="\org\codeangel\security\passwords\" variable="$minLen"/>
           <tag line="1255" name="param" description="int Maximum Length of password, optional, if left out it will be the same as $minLen" type="null" variable="$maxLen">
             <type by_reference="false">null</type>
@@ -274,7 +274,7 @@ ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.&lt;/p&gt;</long-description>
         </docblock>
         <argument line="1261">
           <name>$minLen</name>
-          <default/>
+          <default></default>
           <type/>
         </argument>
         <argument line="1261">
@@ -414,7 +414,7 @@ ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.&lt;/p&gt;</long-description>
         <full_name>__construct</full_name>
         <argument line="33">
           <name>$file</name>
-          <default/>
+          <default></default>
           <type/>
         </argument>
       </method>
@@ -423,7 +423,7 @@ ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.&lt;/p&gt;</long-description>
         <full_name>check</full_name>
         <argument line="37">
           <name>$word</name>
-          <default/>
+          <default></default>
           <type/>
         </argument>
       </method>
@@ -515,7 +515,7 @@ ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.&lt;/p&gt;</long-description>
         <full_name>genPassword</full_name>
         <docblock line="43">
           <description>hashes a password</description>
-          <long-description/>
+          <long-description></long-description>
           <tag line="43" name="param" description="string password to hash" type="\org\codeangel\security\passwords\" variable="$password"/>
           <tag line="43" name="return" description="hashed password" type="string">
             <type by_reference="false">string</type>
@@ -523,7 +523,7 @@ ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.&lt;/p&gt;</long-description>
         </docblock>
         <argument line="48">
           <name>$password</name>
-          <default/>
+          <default></default>
           <type/>
         </argument>
       </method>
@@ -532,7 +532,7 @@ ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.&lt;/p&gt;</long-description>
         <full_name>checkPassword</full_name>
         <docblock line="52">
           <description>Checks entered password matches the hash</description>
-          <long-description/>
+          <long-description></long-description>
           <tag line="52" name="param" description="string password that the user supplied" type="\org\codeangel\security\passwords\" variable="$password"/>
           <tag line="52" name="param" description="string hash from storage (eg. from your database)" type="\org\codeangel\security\passwords\" variable="$expected"/>
           <tag line="52" name="return" description="whether or not the password matched or not" type="bool">
@@ -541,12 +541,12 @@ ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.&lt;/p&gt;</long-description>
         </docblock>
         <argument line="58">
           <name>$password</name>
-          <default/>
+          <default></default>
           <type/>
         </argument>
         <argument line="58">
           <name>$expected</name>
-          <default/>
+          <default></default>
           <type/>
         </argument>
       </method>
@@ -555,18 +555,18 @@ ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.&lt;/p&gt;</long-description>
         <full_name>setCost</full_name>
         <docblock line="62">
           <description>overrides default cost of the hash, will randomize between min and max.</description>
-          <long-description/>
+          <long-description></long-description>
           <tag line="62" name="param" description="" type="\org\codeangel\security\passwords\" variable="$min"/>
           <tag line="62" name="param" description="" type="\org\codeangel\security\passwords\" variable="$max"/>
         </docblock>
         <argument line="67">
           <name>$min</name>
-          <default/>
+          <default></default>
           <type/>
         </argument>
         <argument line="67">
           <name>$max</name>
-          <default/>
+          <default></default>
           <type/>
         </argument>
       </method>
@@ -612,14 +612,14 @@ ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.&lt;/p&gt;</long-description>
       <full_name>\org\codeangel\security\passwords\KoremutakePassword</full_name>
       <docblock line="29">
         <description>Koremetake generator, see http://shorl.com/koremutake for details</description>
-        <long-description/>
+        <long-description></long-description>
       </docblock>
       <method final="false" abstract="false" static="false" visibility="public" namespace="org\codeangel\security\passwords" line="84" package="Default">
         <name>integerToKoremutake</name>
         <full_name>integerToKoremutake</full_name>
         <docblock line="78">
           <description>Returns a koremetake representation of an integer</description>
-          <long-description/>
+          <long-description></long-description>
           <tag line="78" name="param" description="" type="int" variable="$int">
             <type by_reference="false">int</type>
           </tag>
@@ -632,7 +632,7 @@ ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.&lt;/p&gt;</long-description>
         </docblock>
         <argument line="84">
           <name>$int</name>
-          <default/>
+          <default></default>
           <type/>
         </argument>
       </method>
@@ -641,7 +641,7 @@ ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.&lt;/p&gt;</long-description>
         <full_name>koremutakeToInteger</full_name>
         <docblock line="101">
           <description>Returns integer from a koremetake string</description>
-          <long-description/>
+          <long-description></long-description>
           <tag line="101" name="param" description="koremetake string" type="string" variable="$string">
             <type by_reference="false">string</type>
           </tag>
@@ -654,7 +654,7 @@ ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.&lt;/p&gt;</long-description>
         </docblock>
         <argument line="107">
           <name>$string</name>
-          <default/>
+          <default></default>
           <type/>
         </argument>
       </method>
@@ -700,7 +700,7 @@ ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.&lt;/p&gt;</long-description>
         <full_name>randomCaptilize</full_name>
         <docblock line="33">
           <description>Takes a string and randomly capitilizes letters</description>
-          <long-description/>
+          <long-description></long-description>
           <tag line="33" name="static" description=""/>
           <tag line="33" name="param" description="" type="string" variable="$string">
             <type by_reference="false">string</type>
@@ -711,7 +711,7 @@ ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.&lt;/p&gt;</long-description>
         </docblock>
         <argument line="39">
           <name>$string</name>
-          <default/>
+          <default></default>
           <type/>
         </argument>
       </method>
@@ -720,7 +720,7 @@ ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.&lt;/p&gt;</long-description>
         <full_name>capitilizeAlternating</full_name>
         <docblock line="51">
           <description>Takes a string and capitilizes every other word</description>
-          <long-description/>
+          <long-description></long-description>
           <tag line="51" name="static" description=""/>
           <tag line="51" name="param" description="" type="string" variable="$string">
             <type by_reference="false">string</type>
@@ -734,7 +734,7 @@ ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.&lt;/p&gt;</long-description>
         </docblock>
         <argument line="58">
           <name>$string</name>
-          <default/>
+          <default></default>
           <type/>
         </argument>
         <argument line="58">
@@ -748,7 +748,7 @@ ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.&lt;/p&gt;</long-description>
         <full_name>numerize</full_name>
         <docblock line="72">
           <description>Takes a string and replaces certain letters with numbers</description>
-          <long-description/>
+          <long-description></long-description>
           <tag line="72" name="static" description=""/>
           <tag line="72" name="param" description="" type="string" variable="$string">
             <type by_reference="false">string</type>
@@ -762,7 +762,7 @@ ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.&lt;/p&gt;</long-description>
         </docblock>
         <argument line="79">
           <name>$string</name>
-          <default/>
+          <default></default>
           <type/>
         </argument>
         <argument line="79">
@@ -776,7 +776,7 @@ ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.&lt;/p&gt;</long-description>
         <full_name>symbolize</full_name>
         <docblock line="84">
           <description>Takes a string and replaces certain letters with special chars.</description>
-          <long-description/>
+          <long-description></long-description>
           <tag line="84" name="static" description=""/>
           <tag line="84" name="param" description="" type="string" variable="$string">
             <type by_reference="false">string</type>
@@ -790,7 +790,7 @@ ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.&lt;/p&gt;</long-description>
         </docblock>
         <argument line="91">
           <name>$string</name>
-          <default/>
+          <default></default>
           <type/>
         </argument>
         <argument line="91">
@@ -804,7 +804,7 @@ ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.&lt;/p&gt;</long-description>
         <full_name>numsymolize</full_name>
         <docblock line="96">
           <description>Takes a string and replaces certain letters with either numbers or special chars.</description>
-          <long-description/>
+          <long-description></long-description>
           <tag line="96" name="static" description=""/>
           <tag line="96" name="param" description="" type="string" variable="$string">
             <type by_reference="false">string</type>
@@ -818,7 +818,7 @@ ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.&lt;/p&gt;</long-description>
         </docblock>
         <argument line="103">
           <name>$string</name>
-          <default/>
+          <default></default>
           <type/>
         </argument>
         <argument line="103">
@@ -832,12 +832,12 @@ ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.&lt;/p&gt;</long-description>
         <full_name>compare</full_name>
         <argument line="119">
           <name>$str1</name>
-          <default/>
+          <default></default>
           <type/>
         </argument>
         <argument line="119">
           <name>$str2</name>
-          <default/>
+          <default></default>
           <type/>
         </argument>
       </method>
@@ -882,7 +882,7 @@ ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.&lt;/p&gt;</long-description>
         <full_name>genPassword</full_name>
         <argument line="30">
           <name>$password</name>
-          <default/>
+          <default></default>
           <type/>
         </argument>
       </method>
@@ -891,12 +891,12 @@ ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.&lt;/p&gt;</long-description>
         <full_name>checkPassword</full_name>
         <argument line="31">
           <name>$password</name>
-          <default/>
+          <default></default>
           <type/>
         </argument>
         <argument line="31">
           <name>$expected</name>
-          <default/>
+          <default></default>
           <type/>
         </argument>
       </method>
@@ -940,7 +940,7 @@ ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.&lt;/p&gt;</long-description>
         <full_name>check</full_name>
         <argument line="34">
           <name>$word</name>
-          <default/>
+          <default></default>
           <type/>
         </argument>
       </method>
@@ -1020,7 +1020,7 @@ ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.&lt;/p&gt;</long-description>
       <docblock line="29">
         <description>Calculates password strength by calculating entropy
 uses formula length * log(alphabetsize, 2);</description>
-        <long-description/>
+        <long-description></long-description>
       </docblock>
       <constant namespace="org\codeangel\security\passwords" line="34" package="Default">
         <name>VERY_WEAK</name>
@@ -1056,8 +1056,8 @@ uses formula length * log(alphabetsize, 2);</description>
         <name>__construct</name>
         <full_name>__construct</full_name>
         <docblock line="53">
-          <description/>
-          <long-description/>
+          <description></description>
+          <long-description></long-description>
           <tag line="53" name="param" description="optionally pass password to calculate entropy" type="string" variable="$password">
             <type by_reference="false">string</type>
           </tag>
@@ -1081,7 +1081,7 @@ uses formula length * log(alphabetsize, 2);</description>
         <full_name>getAlphabet</full_name>
         <docblock line="65">
           <description>Calculates alphabet size for entropy calculation</description>
-          <long-description/>
+          <long-description></long-description>
           <tag line="65" name="param" description="" type="string" variable="$password">
             <type by_reference="false">string</type>
           </tag>
@@ -1091,7 +1091,7 @@ uses formula length * log(alphabetsize, 2);</description>
         </docblock>
         <argument line="70">
           <name>$password</name>
-          <default/>
+          <default></default>
           <type/>
         </argument>
       </method>
@@ -1100,7 +1100,7 @@ uses formula length * log(alphabetsize, 2);</description>
         <full_name>getEntropy</full_name>
         <docblock line="108">
           <description>Returns the entropy of the password</description>
-          <long-description/>
+          <long-description></long-description>
           <tag line="108" name="return" description="returns entropy of the password" type="float">
             <type by_reference="false">float</type>
           </tag>
@@ -1111,7 +1111,7 @@ uses formula length * log(alphabetsize, 2);</description>
         <full_name>getScore</full_name>
         <docblock line="116">
           <description>Returns password score</description>
-          <long-description/>
+          <long-description></long-description>
           <tag line="116" name="return" description="score of password;" type="int">
             <type by_reference="false">int</type>
           </tag>
@@ -1122,7 +1122,7 @@ uses formula length * log(alphabetsize, 2);</description>
         <full_name>isFoundInDictionary</full_name>
         <docblock line="124">
           <description>Returns if the word was found in a dictionary or not.</description>
-          <long-description/>
+          <long-description></long-description>
           <tag line="124" name="return" description="whether the word was found in a dictionary or not." type="bool">
             <type by_reference="false">bool</type>
           </tag>
@@ -1147,7 +1147,7 @@ PasswordStrength::STRONG, PasswordStrength::VERY_STRONG&lt;/p&gt;</long-descript
         <docblock line="183">
           <description>convenience method to return word representation of password strength
 "very weak", "weak", "fair", "strong", "very strong"</description>
-          <long-description/>
+          <long-description></long-description>
           <tag line="183" name="return" description="word used to describe password strength" type="string">
             <type by_reference="false">string</type>
           </tag>
@@ -1158,14 +1158,14 @@ PasswordStrength::STRONG, PasswordStrength::VERY_STRONG&lt;/p&gt;</long-descript
         <full_name>setPassword</full_name>
         <docblock line="212">
           <description>sets the password</description>
-          <long-description/>
+          <long-description></long-description>
           <tag line="212" name="param" description="" type="string" variable="$password">
             <type by_reference="false">string</type>
           </tag>
         </docblock>
         <argument line="216">
           <name>$password</name>
-          <default/>
+          <default></default>
           <type/>
         </argument>
       </method>
