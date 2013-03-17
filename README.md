@@ -10,7 +10,7 @@ You can install with [composer](http://getcomposer.org/), Simply add to your com
 ```javascript
 {
     "require": {
-        "codeangel/security": "1.*"
+        "codeangel/security": "1.*@alpha"
     }
 }       
 ```
