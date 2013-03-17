@@ -39,3 +39,7 @@ spl_autoload_register('codeangelAutoLoader');
 * `openssl` extension (required)
 * `mcrypt` extension (recommended)
 * `PDO` (recommended)
+
+##Documentation
+
+* [API Docs](http://cythrawll.github.com/CodeAngel-Security/docs) 
