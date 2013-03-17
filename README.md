@@ -1,5 +1,5 @@
-PHP Security Framework
-======================
+Codeangel Security Framework for PHP
+====================================
 
 ##Installation
 
