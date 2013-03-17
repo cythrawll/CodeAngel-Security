@@ -15,7 +15,9 @@ You can install with [[composer|http://getcomposer.org/]], Simply add to your co
 
 Manually:
 Just clone the repository, add the path to your include_path and then define a PSR-0 autolaoder
-`git clone https://github.com/cythrawll/CodeAngel-Security.git`
+```
+git clone https://github.com/cythrawll/CodeAngel-Security.git
+```
 
 ```php
 set_include_path('/path/to/codeangel/library/src'.PATH_SEPARATOR.get_include_path());
